@@ -1,7 +1,5 @@
 module.exports = {
-    pluginOptions: {
-        webpackBundleAnalyzer: {
-            openAnalyzer: true
-        }
-    }
+    publicPath: process.env.NODE_ENV === 'production'
+    ? '/bafouille-pwa/'
+    : '/'
 };
