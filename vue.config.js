@@ -1,5 +1,5 @@
 module.exports = {
-    publicPath: process.env.NODE_ENV === 'production'
-    ? '/bafouille-pwa/'
-    : '/'
+    // publicPath: process.env.NODE_ENV === 'production'
+    // ? '/bafouille-pwa/'
+    // : '/'
 };
