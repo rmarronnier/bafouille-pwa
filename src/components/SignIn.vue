@@ -11,6 +11,7 @@
 </form>
 <hr/>
 <router-link to="/signup">Don't have an account yet?</router-link>
+</main>
 </template>
 
 <script>
