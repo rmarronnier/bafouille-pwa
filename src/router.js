@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Read from './views/Read.vue'
+import SignUpPage from './views/SignUpPage.vue'
+import SignInPage from './views/SignInPage.vue'
 
 Vue.use(Router)
 
@@ -24,6 +26,16 @@ export default new Router({
       path: '/read',
       name: 'read',
       component: Read
+    },
+    {
+      path: '/signup',
+      name: 'signuppage',
+      component: SignUpPage
+    },
+    {
+      path: '/signin',
+      name: 'signinpage',
+      component: SignInPage
     }
   ]
 })
