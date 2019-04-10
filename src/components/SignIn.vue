@@ -1,6 +1,6 @@
 <template>
  <main class="container ui grid"><h1>Sign In</h1>
-<form action="bafouille.org/api/session" method="post">
+<form action="https://bafouille.org/api/session" method="post">
   <div class="form-group">
     <input class="form-control" type="email" name="email" placeholder="Email">
   </div>
