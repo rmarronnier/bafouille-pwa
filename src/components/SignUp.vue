@@ -1,16 +1,21 @@
 <template>
     <main class="container ui grid"><h1>Sign Up</h1>
-<form action="https://www.bafouille.org/api/registration" method="post">
+<form @submit.prevent="signup">
   <div class="form-group">
-    <input class="form-control" type="email" name="email" placeholder="Email">
+    <label for="email" >E-Mail Address</label>
+    <input id="email" type="email" name="email" placeholder="Email" v-model="email" required autofocus>
   </div>
   <div class="form-group">
-    <input class="form-control" type="password" name="password" placeholder="Password">
+    <input class="form-control" id="password" type="password" name="password" placeholder="Password"  v-model="password" required>
+    <label for="password-confirm">Confirm Password</label>
+    <input id="password-confirm" type="password" v-model="password_confirmation" required>
   </div>
   <button class="btn btn-success btn-sm" type="submit">
     Register
   </button>
 </form>
+
+
 <hr/>
 <router-link to="/signin">Already have an account?</router-link>
 </main>
@@ -18,7 +23,29 @@
 
 <script>
 export default {
-  name: 'SignUp'
+  name: 'SignUp',
+
+      data(){
+      return {
+        email : "",
+        password : "",
+        password_confirmation : "",
+        is_admin : null
+      }
+    },
+        methods: {
+      register: function () {
+        let data = {
+          name: this.name,
+          email: this.email,
+          password: this.password,
+          is_admin: this.is_admin
+        }
+        this.$store.dispatch('register', data)
+       .then(() => this.$router.push('/'))
+       .catch(err => console.log(err))
+      }
+    }
 }
 </script>
 

@@ -7,7 +7,9 @@ import SignInPage from './views/SignInPage.vue'
 
 Vue.use(Router)
 
+
 export default new Router({
+
   routes: [
     {
       path: '/',
@@ -25,7 +27,10 @@ export default new Router({
     {
       path: '/read',
       name: 'read',
-      component: Read
+      component: Read,
+      meta: { 
+        requiresAuth: true
+      }
     },
     {
       path: '/signup',

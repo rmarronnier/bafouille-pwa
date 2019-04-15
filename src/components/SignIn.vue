@@ -1,14 +1,17 @@
 <template>
  <main class="container ui grid"><h1>Sign In</h1>
-<form action="https://www.bafouille.org/api/session" method="post">
+<form @submit.prevent="signin">
   <div class="form-group">
-    <input class="form-control" type="email" name="email" placeholder="Email">
+    <label>Email</label>
+    <input required v-model="email" type="email" name="email" placeholder="Email">
   </div>
   <div class="form-group">
-    <input class="form-control" type="password" name="password" placeholder="Password">
+    <label>Password</label>
+    <input required v-model="password" type="password" name="password" placeholder="Password">
   </div>
   <button class="btn btn-success btn-sm" type="submit">Sign In</button>
 </form>
+
 <hr/>
 <router-link to="/signup">Don't have an account yet?</router-link>
 </main>
@@ -16,7 +19,24 @@
 
 <script>
 export default {
-  name: 'SignIn'
+  name: 'SignIn',
+
+   data(){
+      return {
+        email : "",
+        password : ""
+      }
+    },
+
+    methods: {
+      signin: function () {
+        let email = this.email 
+        let password = this.password
+        this.$store.dispatch('signin', { email, password })
+       .then(() => this.$router.push('/'))
+       .catch(err => console.log(err))
+      }
+    }
 }
 </script>
 
