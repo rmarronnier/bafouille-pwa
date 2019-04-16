@@ -1,7 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import VuexPersist from 'vuex-persist'
+
 
 Vue.use(Vuex)
+
+const vuexLocal = new VuexPersist({
+  key: 'bafouille',
+  storage: window.localStorage
+})
 
 export default new Vuex.Store({
   state: {
@@ -30,7 +37,7 @@ export default new Vuex.Store({
   },
   actions: {
 
-    login({commit}, user){
+    signin({commit}, user){
       return new Promise((resolve, reject) => {
         commit('auth_request')
         fetch('https://www.bafouille.org/api/session', {
@@ -41,8 +48,9 @@ export default new Vuex.Store({
     },
     body: JSON.stringify(user)})
         .then(resp => {
-          const user = resp.data.user
-          commit('auth_success', user)
+          // const user = resp.data.user
+          // commit('auth_success', user)
+          commit('auth_success')
           resolve(resp)
         })
         .catch(err => {
@@ -63,8 +71,9 @@ export default new Vuex.Store({
         },
         body: JSON.stringify(user)})
       .then(resp => {
-        const user = resp.data.user
-        commit('auth_success', user)
+        // const user = resp.data.user
+        commit('auth_success')
+        // commit('auth_success', user)
         resolve(resp)
       })
       .catch(err => {
@@ -98,5 +107,6 @@ export default new Vuex.Store({
   },
   getters : {
     authStatus: state => state.status,
-  }
+  },
+  plugins: [vuexLocal.plugin]
 })

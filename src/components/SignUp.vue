@@ -1,6 +1,6 @@
 <template>
     <main class="container ui grid"><h1>Sign Up</h1>
-<form @submit.prevent="signup">
+<form @submit.prevent="register">
   <div class="form-group">
     <label for="email" >E-Mail Address</label>
     <input id="email" type="email" name="email" placeholder="Email" v-model="email" required autofocus>
@@ -30,16 +30,15 @@ export default {
         email : "",
         password : "",
         password_confirmation : "",
-        is_admin : null
+        // is_admin : null
       }
     },
         methods: {
       register: function () {
         let data = {
-          name: this.name,
           email: this.email,
           password: this.password,
-          is_admin: this.is_admin
+          // is_admin: this.is_admin
         }
         this.$store.dispatch('register', data)
        .then(() => this.$router.push('/'))
