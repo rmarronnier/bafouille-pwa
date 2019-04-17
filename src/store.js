@@ -21,18 +21,21 @@ export default new Vuex.Store({
       state.status = 'loading'
     },
     auth_success(state, user){
-      state.status = 'success'
+      state.status = 'logged_in'
       state.user = user
     },
     auth_error(state){
       state.status = 'error'
     },
     logout_success(state){
-      state.status = ''
+      state.status = 'logged_out'
     },
     logout_error(state){
-      state.status = 'success'
+      state.status = 'logged_in'
     },
+    profiles(state, profiles){
+      state.user.profiles = profiles
+    }
 
   },
   actions: {
@@ -50,7 +53,7 @@ export default new Vuex.Store({
         .then(resp => {
           // const user = resp.data.user
           // commit('auth_success', user)
-          commit('auth_success')
+          commit('auth_success', user)
           resolve(resp)
         })
         .catch(err => {
@@ -70,11 +73,12 @@ export default new Vuex.Store({
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(user)})
-      .then(resp => {
+      .then(resp =>resp.json())
+      .then(profiles =>  {
         // const user = resp.data.user
-        commit('auth_success')
+        commit('auth_success', user)
         // commit('auth_success', user)
-        resolve(resp)
+        commit('profiles', profiles)
       })
       .catch(err => {
         commit('auth_error', err)
