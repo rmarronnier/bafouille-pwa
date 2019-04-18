@@ -29,6 +29,9 @@ export default new Vuex.Store({
     auth_error(state){
       state.status = 'login_error'
     },
+    logout_request(state){
+      state.status = 'logging_out'
+    },
     logout_success(state){
       state.status = 'logged_out'
       state.isLoggedIn = false
@@ -92,7 +95,7 @@ export default new Vuex.Store({
 
   logout({commit}){
     return new Promise((resolve, reject) => {
-      commit('logout')
+      commit('logout_request')
       fetch('https://www.bafouille.org/api/signout', {
         method: 'GET',
         headers: {
@@ -115,7 +118,8 @@ export default new Vuex.Store({
   getters : {
     authStatus: state => state.status,
     isLoggedIn: state => state.isLoggedIn,
-    profiles: state => state.user.profiles
+    profiles: state => state.user.profiles,
+    email: state => state.user.email
   },
   plugins: [vuexLocal.plugin]
 })
