@@ -28,7 +28,8 @@
 
   export default {
     computed : {
-      isLoggedIn : function(){ return this.$store.getters.isLoggedIn}
+      isLoggedIn : function(){ return this.$store.getters.isLoggedIn},
+      profiles : function(){ return this.$store.getters.profiles}
     },
     methods: {
       logout: function () {

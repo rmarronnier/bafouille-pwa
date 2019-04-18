@@ -13,6 +13,7 @@ const vuexLocal = new VuexPersist({
 export default new Vuex.Store({
   state: {
     status: '',
+    isLoggedIn: false,
     user : {}
   },
   mutations: {
@@ -22,16 +23,18 @@ export default new Vuex.Store({
     },
     auth_success(state, user){
       state.status = 'logged_in'
+      state.isLoggedIn = true
       state.user = user
     },
     auth_error(state){
-      state.status = 'error'
+      state.status = 'login_error'
     },
     logout_success(state){
       state.status = 'logged_out'
+      state.isLoggedIn = false
     },
     logout_error(state){
-      state.status = 'logged_in'
+      state.status = 'logout_error'
     },
     profiles(state, profiles){
       state.user.profiles = profiles
@@ -111,6 +114,8 @@ export default new Vuex.Store({
   },
   getters : {
     authStatus: state => state.status,
+    isLoggedIn: state => state.isLoggedIn,
+    profiles: state => state.user.profiles
   },
   plugins: [vuexLocal.plugin]
 })
