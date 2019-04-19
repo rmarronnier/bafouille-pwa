@@ -1,6 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import VuexPersist from 'vuex-persist'
+import Auth from './items/Auth'
+import User from './items/User'
+import Profiles from './items/Profiles'
+import Pairs from './items/Pairs'
+import Messages from './items/Messages'
 
 
 Vue.use(Vuex)

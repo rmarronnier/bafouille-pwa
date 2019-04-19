@@ -1,4 +1,5 @@
-const auth = {
+export default {
+  name: auth,
   state: { ... },
   mutations: { ... },
   actions: { ... },
