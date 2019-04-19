@@ -1,4 +1,4 @@
-const Auth = {
+const auth = {
   state: { ... },
   mutations: { ... },
   actions: { ... },
