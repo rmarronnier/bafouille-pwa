@@ -1,4 +1,4 @@
-const moduleAuth = {
+const Auth = {
   state: { ... },
   mutations: { ... },
   actions: { ... },
