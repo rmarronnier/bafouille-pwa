@@ -14,18 +14,6 @@
 
 <script>
 
-  // router.beforeEach((to, from, next) => {
-  //   if(to.matched.some(record => record.meta.requiresAuth)) {
-  //     if (store.getters.isLoggedIn) {
-  //       next()
-  //       return
-  //     }
-  //     next('/signin') 
-  //   } else {
-  //     next() 
-  //   }
-  // })
-
   export default {
     computed : {
       isLoggedIn : function(){ return this.$store.getters.isLoggedIn}
