@@ -96,7 +96,7 @@ export default {
   }
    },
   getters: { 
-    authStatus: state => state.auth.status,
-    isLoggedIn: state => state.auth.isLoggedIn
+    authStatus: state => state.status,
+    isLoggedIn: state => state.isLoggedIn
    }
 }
