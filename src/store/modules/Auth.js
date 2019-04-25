@@ -1,3 +1,5 @@
+import { API_URL } from "../config";
+
 export default {
   state: {     
   status: '',
@@ -30,7 +32,7 @@ export default {
     signin({commit}, user){
       return new Promise((resolve, reject) => {
         commit('auth_request')
-        fetch('https://www.bafouille.org/api/session', {
+        fetch(API_URL.concat("session"), {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -53,7 +55,7 @@ export default {
   register({commit}, user){
     return new Promise((resolve, reject) => {
       commit('auth_request')
-      fetch('https://www.bafouille.org/api/registration', {
+      fetch(API_URL.concat('registration'), {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -77,7 +79,7 @@ export default {
   logout({commit}){
     return new Promise((resolve, reject) => {
       commit('logout_request')
-      fetch('https://www.bafouille.org/api/signout', {
+      fetch(API_URL.concat('signout'), {
         method: 'GET',
         headers: {
           'Accept': 'application/json',
