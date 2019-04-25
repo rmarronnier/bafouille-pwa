@@ -40,8 +40,6 @@ export default {
     },
     body: JSON.stringify(user)})
         .then(resp => {
-          // const user = resp.data.user
-          // commit('auth_success', user)
           commit('auth_success', user)
           resolve(resp)
         })
