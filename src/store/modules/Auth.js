@@ -103,6 +103,6 @@ export default {
   getters: { 
     authStatus: state => state.status,
     isLoggedIn: state => state.isLoggedIn,
-    lastUpdate: state => state.lastUpdate
+    authLastUpdate: state => state.lastUpdate
    }
 }

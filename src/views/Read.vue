@@ -1,23 +1,19 @@
 <template>
-  <div class="read">
-      fsdfsdf
-      {{ email }}
+  <section class="read">
       <div
         v-for="profile in profiles"
-        :[key]="body"
-        class="profile"
+        v-bind:key="profile.id"
       >
-        <span>{{ profile.body }}</span>
+        <article>{{ profile.body }}</article>
       </div>
-  </div>
+  </section>
 </template>
 
 <script>
 export default {
     name : 'Read',
      computed : {
-       profiles : function(){ return this.$store.getters.profiles},
-       email : function(){ return this.$store.getters.email}
+       profiles : function(){ return this.$store.getters.profiles}
      }
 }
 </script>

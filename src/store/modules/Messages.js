@@ -10,7 +10,7 @@ export default {
     mutations: {
       updateMessages(state, newMessages){
         state.current = newMessages
-        state.quantity = newMessages.length
+        state.quantity = state.current.length
         state.lastUpdate = Date.now()
      },
      addMessage(state, newMessage){
@@ -63,6 +63,6 @@ export default {
     getters: {
       current_messages: state => state.current,
       messages_quantity: state => state.quantity,
-      lastUpdate: state => state.lastUpdate
+      messagesLastUpdate: state => state.lastUpdate
     }
   }

@@ -9,7 +9,7 @@ export default {
     mutations: { 
       updatePairs(state, newPairs){
         state.current = newPairs
-        state.quantity = newPairs.length()
+        state.quantity = state.current.length
         state.lastUpdate = Date.now()
      }
     },
@@ -35,8 +35,8 @@ export default {
       }
      },
     getters: { 
-      current_pairs: state => state.current,
+      pairs: state => state.current,
       pairs_quantity: state => state.quantity,
-      lastUpdate: state => state.lastUpdate
+      pairsLastUpdate: state => state.lastUpdate
      }
   }

@@ -35,6 +35,6 @@ export default {
        },
       getters: { 
         user_body: state => state.body,
-        lastUpdate: state => state.lastUpdate
+        userLastUpdate: state => state.lastUpdate
       }
     }

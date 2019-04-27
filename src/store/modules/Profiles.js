@@ -9,12 +9,12 @@ const state = {
 const mutations = { 
   updateProfiles(state, newProfiles){
   state.current = newProfiles
-  state.quantity = newProfiles.length()
+  state.quantity = state.current.length
   state.lastUpdate = Date.now()
 },
 removeProfile(state, profileID){
 state.current.splice(profileID, 1)
-state.quantity = state.current.length()
+state.quantity = state.current.length
 }
 }
 
@@ -85,9 +85,9 @@ const actions = {
 }
 
 const getters = {
-  current_profiles: state => state.current,
+  profiles: state => state.current,
   profiles_quantity: state => state.quantity,
-  lastUpdate: state => state.lastUpdate
+  profilesLastUpdate: state => state.lastUpdate
 }
 
 export default {

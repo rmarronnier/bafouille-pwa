@@ -41,7 +41,7 @@ export default {
           // is_admin: this.is_admin
         }
         this.$store.dispatch('register', data)
-       .then(() => this.$router.push('/'))
+       .then(() => this.$router.push('/read'))
        .catch(err => console.log(err))
       }
     }
