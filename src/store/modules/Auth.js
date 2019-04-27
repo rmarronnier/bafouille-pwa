@@ -3,19 +3,22 @@ import { API_URL } from "../config";
 export default {
   state: {     
   status: '',
-  isLoggedIn: false 
+  isLoggedIn: false ,
+  lastUpdate: 0
 },
   mutations: { 
     auth_request(state){
       state.status = 'loading'
     },
-    auth_success(state, user){
+    auth_success(state){
       state.status = 'logged_in'
       state.isLoggedIn = true
-      state.user = user
+      state.lastUpdate = Date.now()
     },
     auth_error(state){
       state.status = 'login_error'
+      state.isLoggedIn = false
+      state.lastUpdate = Date.now()
     },
     logout_request(state){
       state.status = 'logging_out'
@@ -23,13 +26,14 @@ export default {
     logout_success(state){
       state.status = 'logged_out'
       state.isLoggedIn = false
+      state.lastUpdate = Date.now()
     },
     logout_error(state){
       state.status = 'logout_error'
     }
    },
   actions: { 
-    signin({commit}, user){
+    signin({commit, dispatch}, user){
       return new Promise((resolve, reject) => {
         commit('auth_request')
         fetch(API_URL.concat("session"), {
@@ -41,6 +45,9 @@ export default {
     body: JSON.stringify(user)})
         .then(resp => {
           commit('auth_success', user)
+          dispatch('getProfiles')
+          dispatch('getPairs')
+          dispatch('getMessages')
           resolve(resp)
         })
         .catch(err => {
@@ -62,10 +69,8 @@ export default {
         body: JSON.stringify(user)})
       .then(resp =>resp.json())
       .then(profiles =>  {
-        // const user = resp.data.user
         commit('auth_success', user)
-        // commit('auth_success', user)
-        commit('profiles', profiles)
+        commit('updateProfiles', profiles)
       })
       .catch(err => {
         commit('auth_error', err)
@@ -97,6 +102,7 @@ export default {
    },
   getters: { 
     authStatus: state => state.status,
-    isLoggedIn: state => state.isLoggedIn
+    isLoggedIn: state => state.isLoggedIn,
+    lastUpdate: state => state.lastUpdate
    }
 }
