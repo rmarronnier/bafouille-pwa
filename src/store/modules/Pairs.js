@@ -16,7 +16,8 @@ export default {
     actions: { 
       getPairs({commit}){
         return new Promise((resolve, reject) => {
-          fetch(API_URL.concat('registration'), {
+          fetch(API_URL.concat('pairs'), {
+            credentials: 'include',
             method: 'GET',
             headers: {
               'Accept': 'application/json',
@@ -26,6 +27,7 @@ export default {
           .then(resp =>resp.json())
           .then(newPairs =>  {
             commit('updatePairs', newPairs)
+            resolve(newPairs)
           })
           .catch(err => {
             commit('auth_error', err)

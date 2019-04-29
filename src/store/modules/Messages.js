@@ -23,6 +23,7 @@ export default {
       getMessages({commit}){
         return new Promise((resolve, reject) => {
           fetch(API_URL.concat('correspondences'), {
+            credentials: 'include',
             method: 'GET',
             headers: {
               'Accept': 'application/json',
@@ -32,6 +33,7 @@ export default {
           .then(resp =>resp.json())
           .then(newMessages =>  {
             commit('updateMessages', newMessages)
+            resolve(newMessages)
           })
           .catch(err => {
             commit('auth_error', err)
@@ -61,7 +63,7 @@ export default {
       }
     },
     getters: {
-      current_messages: state => state.current,
+      messages: state => state.current,
       messages_quantity: state => state.quantity,
       messagesLastUpdate: state => state.lastUpdate
     }

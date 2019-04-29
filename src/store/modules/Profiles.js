@@ -23,6 +23,7 @@ const actions = {
   getProfiles({commit}){
     return new Promise((resolve, reject) => {
       fetch(API_URL.concat('read'), {
+        credentials: 'include',
         method: 'GET',
         headers: {
           'Accept': 'application/json',
@@ -32,6 +33,7 @@ const actions = {
       .then(resp =>resp.json())
       .then(newProfiles =>  {
         commit('updateProfiles', newProfiles)
+        resolve(newProfiles)
       })
       .catch(err => {
         commit('auth_error', err)

@@ -6,6 +6,7 @@
       <router-link v-if="!isLoggedIn" to="/signin">Sign in |</router-link>
       <router-link v-if="isLoggedIn" to="/read">Read |</router-link>
       <router-link v-if="isLoggedIn" to="/pairs">Pairs |</router-link>
+      <router-link v-if="isLoggedIn" to="/messages">Messages |</router-link>
       <router-link to="/about"> About</router-link>
       <span v-if="isLoggedIn"> | <a @click="logout">Logout</a></span>
     </div>

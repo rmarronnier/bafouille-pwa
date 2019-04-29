@@ -37,6 +37,7 @@ export default {
       return new Promise((resolve, reject) => {
         commit('auth_request')
         fetch(API_URL.concat("session"), {
+          credentials: 'include',
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -71,6 +72,7 @@ export default {
       .then(profiles =>  {
         commit('auth_success', user)
         commit('updateProfiles', profiles)
+        resolve(profiles)
       })
       .catch(err => {
         commit('auth_error', err)
