@@ -2,18 +2,29 @@
  <main class="container ui grid"><h1>Sign In</h1>
 <form @submit.prevent="signin">
   <div class="form-group">
-    <label>Email</label>
-    <input required v-model="email" type="email" name="email" placeholder="Email">
+          <v-text-field
+            v-model="email"
+            name="email"
+            type="email"
+            required
+            autofocus
+            label="E-mail"
+          ></v-text-field>
   </div>
   <div class="form-group">
-    <label>Password</label>
-    <input required v-model="password" type="password" name="password" placeholder="Password">
+              <v-text-field
+            v-model="password"
+            name="password"
+            type="password"
+            hint="For example : 123456"
+            required
+            label="Password"
+          ></v-text-field>
   </div>
-  <button class="btn btn-success btn-sm" type="submit">Sign In</button>
+  <v-btn flat type="submit">Sign In</v-btn>
 </form>
 
-<hr/>
-<router-link to="/signup">Don't have an account yet?</router-link>
+<v-btn flat to="/signup">Don't have an account yet?</v-btn>
 </main>
 </template>
 
@@ -33,7 +44,7 @@ export default {
         let email = this.email 
         let password = this.password
         this.$store.dispatch('signin', { email, password })
-       .then(() => this.$router.push('/'))
+       .then(() => this.$router.push('/read'))
        .catch(err => console.log(err))
       }
     }

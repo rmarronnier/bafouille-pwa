@@ -85,6 +85,7 @@ export default {
     return new Promise((resolve, reject) => {
       commit('logout_request')
       fetch(API_URL.concat('signout'), {
+        credentials: 'include',
         method: 'GET',
         headers: {
           'Accept': 'application/json',

@@ -1,17 +1,33 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home |</router-link>
-      <router-link v-if="!isLoggedIn" to="/signup">Sign up |</router-link>
-      <router-link v-if="!isLoggedIn" to="/signin">Sign in |</router-link>
-      <router-link v-if="isLoggedIn" to="/read">Read |</router-link>
-      <router-link v-if="isLoggedIn" to="/pairs">Pairs |</router-link>
-      <router-link v-if="isLoggedIn" to="/messages">Messages |</router-link>
-      <router-link to="/about"> About</router-link>
-      <span v-if="isLoggedIn"> | <a @click="logout">Logout</a></span>
-    </div>
-    <router-view/>
+
+<v-app>
+  <v-toolbar app scroll-toolbar-off-screen=true>
+          <v-toolbar-items>
+            <v-btn flat to="/">Bafouille logo</v-btn>
+      <v-btn flat v-if="!isLoggedIn" to="/signup">Sign up</v-btn>
+      <v-btn flat v-if="!isLoggedIn" to="/signin">Sign in</v-btn>
+      <v-btn flat v-if="isLoggedIn" to="/read">Read</v-btn>
+      <v-btn flat v-if="isLoggedIn" to="/pairs">Pairs</v-btn>
+      <v-btn flat v-if="isLoggedIn" to="/messages">Messages</v-btn>
+      </v-toolbar-items>
+            <v-spacer></v-spacer>
+      <v-btn flat v-if="isLoggedIn"><a @click="logout">Logout</a></v-btn>
+  </v-toolbar>
+  <v-content>
+    <v-container fluid>
+      <router-view></router-view>
+    </v-container>
+  </v-content>
+  <v-footer app>
+       <v-spacer></v-spacer>
+    <v-btn flat to="/about"> About</v-btn></v-footer>
+</v-app>
+
+
   </div>
+
+
 </template>
 
 <script>
@@ -44,7 +60,7 @@
   a {
     font-weight: bold;
     color: #2c3e50;
-    &.router-link-exact-active {
+    &.v-btn flat-exact-active {
       color: #42b983;
     }
   }

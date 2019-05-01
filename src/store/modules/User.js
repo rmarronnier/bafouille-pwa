@@ -15,6 +15,7 @@ export default {
         changeBody({commit}, newBody){
           return new Promise((resolve, reject) => {
             fetch(API_URL.concat('write'), {
+              credentials: 'include',
               method: 'PATCH',
               headers: {
                 'Accept': 'application/json',

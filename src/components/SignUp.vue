@@ -2,24 +2,43 @@
     <main class="container ui grid"><h1>Sign Up</h1>
 <form @submit.prevent="register">
   <div class="form-group">
-    <label for="email" >E-Mail Address</label>
-    <input id="email" type="email" name="email" placeholder="Email" v-model="email" required autofocus>
+          <v-text-field
+            v-model="email"
+            name="email"
+            type="email"
+            hint="For example : epresley@area51.us"
+            required
+            label="E-mail"
+          ></v-text-field>
   </div>
   <div class="form-group">
-    <input class="form-control" id="password" type="password" name="password" placeholder="Password"  v-model="password" required>
-    <label for="password-confirm">Confirm Password</label>
-    <input id="password-confirm" type="password" v-model="password_confirmation" required>
+                  <v-text-field
+            v-model="password"
+            name="password"
+            type="password"
+            hint="For example : 123456"
+            required
+            label="Password"
+          ></v-text-field>
+                            <v-text-field
+            v-model="password_confirmation"
+            type="password"
+            required
+            label="Confirm Password"
+          ></v-text-field>
   </div>
-  <button class="btn btn-success btn-sm" type="submit">
-    Register
-  </button>
+  <v-btn flat type="submit">Sign up</v-btn>
 </form>
 
 
 <hr/>
-<router-link to="/signin">Already have an account?</router-link>
+<v-btn flat to="/signin">Already have an account?</v-btn>
 </main>
+
 </template>
+
+
+
 
 <script>
 export default {
@@ -41,7 +60,7 @@ export default {
           // is_admin: this.is_admin
         }
         this.$store.dispatch('register', data)
-       .then(() => this.$router.push('/read'))
+       .then(() => this.$router.push('/write'))
        .catch(err => console.log(err))
       }
     }
