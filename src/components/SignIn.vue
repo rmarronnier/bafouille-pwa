@@ -45,7 +45,7 @@ export default {
         let password = this.password
         this.$store.dispatch('signin', { email, password })
        .then(() => this.$router.push('/read'))
-       .catch(err => console.log(err))
+       .catch(err => (err))
       }
     }
 }

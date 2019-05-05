@@ -32,7 +32,7 @@ export default {
         let newbody = this.newbody 
         this.$store.dispatch('changeBody', { newbody })
        .then(() => this.$router.push('/read'))
-       .catch(err => console.log(err))
+       .catch(err => (err))
       }
     },
     computed : {
