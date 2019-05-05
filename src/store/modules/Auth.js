@@ -1,4 +1,4 @@
-import { API_URL } from "../config";
+import ApiService from "@/API/api";
 
 export default {
   state: {     
@@ -36,14 +36,7 @@ export default {
     signin({commit, dispatch}, user){
       return new Promise((resolve, reject) => {
         commit('auth_request')
-        fetch(API_URL.concat("session"), {
-          credentials: 'include',
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(user)})
+        ApiService("signin", JSON.stringify(user))
         .then(resp => {
           commit('auth_success', user)
           dispatch('getProfiles')
@@ -61,13 +54,7 @@ export default {
   register({commit}, user){
     return new Promise((resolve, reject) => {
       commit('auth_request')
-      fetch(API_URL.concat('registration'), {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(user)})
+      ApiService("register", JSON.stringify(user))
       .then(resp =>resp.json())
       .then(profiles =>  {
         commit('auth_success', user)
@@ -84,13 +71,7 @@ export default {
   logout({commit}){
     return new Promise((resolve, reject) => {
       commit('logout_request')
-      fetch(API_URL.concat('signout'), {
-        method: 'GET',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-          })
+      ApiService("logout")
       .then(resp => {
         commit('logout_success')
         resolve(resp)

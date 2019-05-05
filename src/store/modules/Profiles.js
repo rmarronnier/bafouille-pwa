@@ -1,4 +1,4 @@
-import { API_URL } from "../config";
+import ApiService from "@/API/api";
 
 const state = { 
   quantity: 0,
@@ -22,14 +22,7 @@ const actions = {
 
   getProfiles({commit}){
     return new Promise((resolve, reject) => {
-      fetch(API_URL.concat('read'), {
-        credentials: 'include',
-        method: 'GET',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        }
-      })
+      ApiService("getprofiles")
       .then(resp =>resp.json())
       .then(newProfiles =>  {
         commit('updateProfiles', newProfiles)
@@ -44,13 +37,7 @@ const actions = {
 
   reachOut({ commit, dispatch }, profileID) {
     return new Promise((resolve, reject) => {
-      fetch(API_URL.concat("reach/").concat(profileID), {
-  method: 'POST',
-  headers: {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify(profileID)})
+      ApiService("reachout", "", JSON.stringify(profileID))
   .then(resp => {
     commit('removeProfile', profileID)
     resolve(resp)
@@ -65,13 +52,7 @@ const actions = {
 
   blockOut({ commit, dispatch }, profileID) {
     return new Promise((resolve, reject) => {
-      fetch(API_URL.concat("blockout/").concat(profileID), {
-  method: 'POST',
-  headers: {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify(profileID)})
+      ApiService("blockout", "", JSON.stringify(profileID))
   .then(resp => {
     commit('removeProfile', profileID)
     resolve(resp)

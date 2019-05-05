@@ -1,4 +1,4 @@
-import { API_URL } from "../config";
+import ApiService from "@/API/api";
 
 export default {
     state: { 
@@ -16,14 +16,7 @@ export default {
     actions: { 
       getPairs({commit}){
         return new Promise((resolve, reject) => {
-          fetch(API_URL.concat('pairs'), {
-            credentials: 'include',
-            method: 'GET',
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-            }
-          })
+          ApiService("getpairs")
           .then(resp =>resp.json())
           .then(newPairs =>  {
             commit('updatePairs', newPairs)
