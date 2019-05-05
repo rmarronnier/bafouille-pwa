@@ -4,7 +4,7 @@
         v-for="pair in pairs"
         v-bind:key="pair.id"
       >
-        <article>{{ pair.id }}</article>
+        <article>{{ pair.body }}</article>
       </div>
   </section>
 </template>

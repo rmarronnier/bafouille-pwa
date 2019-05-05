@@ -22,7 +22,7 @@ export default {
     actions: {
       getMessages({commit}, pairID){
         return new Promise((resolve, reject) => {
-          ApiService("getmessages", "", pairID)
+          ApiService("getmessages", null, pairID)
           .then(resp =>resp.json())
           .then(newMessages =>  {
             commit('updateMessages', newMessages)

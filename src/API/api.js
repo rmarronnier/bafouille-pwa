@@ -1,6 +1,6 @@
 import { API_URL } from "@/API/config";
 
-export function ApiService(action = "", slug = "", body = "") {
+export function ApiService(action = "", body = null, slug = "") {
 
 var ressource, method
 
