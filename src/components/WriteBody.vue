@@ -23,7 +23,7 @@ export default {
 
    data(){
       return {
-        new_body : ""
+        newbody : ""
       }
     },
 

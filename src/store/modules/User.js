@@ -1,4 +1,4 @@
-import { API_URL } from "../config";
+import ApiService from "@/API/api";
 
 export default {
       state: { 
@@ -14,17 +14,9 @@ export default {
       actions: {
         changeBody({commit}, newBody){
           return new Promise((resolve, reject) => {
-            fetch(API_URL.concat('write'), {
-              credentials: 'include',
-              method: 'PATCH',
-              headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(newBody)})
-            .then(resp =>resp.json())
+            ApiService("changebody", JSON.stringify(newBody))
             .then(resp =>  {
-              commit('updateBody', newBody)
+              commit('updateBody', JSON.stringify(newBody))
               resolve(resp)
             })
             .catch(err => {

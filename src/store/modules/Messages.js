@@ -1,4 +1,4 @@
-import { API_URL } from "../config";
+import ApiService from "@/API/api";
 
 export default {
     state: { 
@@ -20,16 +20,9 @@ export default {
 
     },
     actions: {
-      getMessages({commit}){
+      getMessages({commit}, pairID){
         return new Promise((resolve, reject) => {
-          fetch(API_URL.concat('correspondences'), {
-            credentials: 'include',
-            method: 'GET',
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-            }
-          })
+          ApiService("getmessages", "", pairID)
           .then(resp =>resp.json())
           .then(newMessages =>  {
             commit('updateMessages', newMessages)
@@ -43,13 +36,7 @@ export default {
       },
       postMessage({ commit, dispatch }, body, pairID) {
         return new Promise((resolve, reject) => {
-          fetch(API_URL.concat("pair/").concat(pairID), {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(body)})
+          ApiService("postmessage", body, pairID)
       .then(resp => {
         commit('addMessage', { body, pairID })
         resolve(resp)
