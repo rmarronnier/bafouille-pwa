@@ -20,9 +20,9 @@ export default {
 
     },
     actions: {
-      getMessages({commit}, pairID){
+      getMessages({commit}, pair_id){
         return new Promise((resolve, reject) => {
-          ApiService("getmessages", null, pairID)
+          ApiService("getmessages", pair_id)
           .then(resp =>resp.json())
           .then(newMessages =>  {
             commit('updateMessages', newMessages)
@@ -34,11 +34,11 @@ export default {
           })
         })
       },
-      postMessage({ commit, dispatch }, body, pairID) {
+      postMessage({ commit, dispatch }, message) {
         return new Promise((resolve, reject) => {
-          ApiService("postmessage", body, pairID)
+          ApiService("postmessage", message)
       .then(resp => {
-        commit('addMessage', { body, pairID })
+        commit('addMessage', message)
         resolve(resp)
       })
       .catch(err => {

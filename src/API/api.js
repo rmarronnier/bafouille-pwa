@@ -1,6 +1,6 @@
 import { API_URL } from "@/API/config";
 
-export function ApiService(action = "", body = null, slug = "") {
+export function ApiService(action = "", body = null) {
 
 var ressource, method
 
@@ -33,12 +33,12 @@ var ressource, method
             break;
 
         case "reachout":
-        ressource = "reach/"
+        ressource = "reach"
         method = "POST"
             break;
 
         case "blockout":
-        ressource = "blockout/"
+        ressource = "blockout"
         method = "POST"
             break;
 
@@ -48,12 +48,12 @@ var ressource, method
             break;
 
         case "getmessages":
-        ressource = "correspondences/"
+        ressource = "correspondence"
         method = "GET"
             break;
 
         case "postmessage":
-        ressource = "pairs/"
+        ressource = "pairs"
         method = "POST"
             break;
 
@@ -63,7 +63,7 @@ var ressource, method
             break;
     }
 
-return fetch(API_URL.concat(ressource).concat(slug), {
+return fetch(API_URL.concat(ressource), {
     credentials: 'include',
 method: method,
 headers: {
