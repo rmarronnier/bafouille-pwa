@@ -47,11 +47,6 @@ var ressource, method
         method = "GET"
             break;
 
-        case "getmessages":
-        ressource = "correspondence"
-        method = "GET"
-            break;
-
         case "postmessage":
         ressource = "pairs"
         method = "POST"

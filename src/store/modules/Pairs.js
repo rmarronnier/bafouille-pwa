@@ -14,11 +14,16 @@ export default {
      }
     },
     actions: { 
-      getPairs({commit}){
+      getPairs({commit, rootState }){
         return new Promise((resolve, reject) => {
           ApiService("getpairs")
           .then(resp =>resp.json())
           .then(newPairs =>  {
+            var user_id = rootState.user.user_id
+            newPairs.forEach(element => {
+              var pos = element.users.indexOf(user_id)
+              element.users.splice(pos, 1)
+            });
             commit('updatePairs', newPairs)
             resolve(newPairs)
           })

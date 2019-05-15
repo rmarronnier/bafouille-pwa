@@ -1,7 +1,8 @@
 import ApiService from "@/API/api";
 
 export default {
-      state: { 
+      state: {
+          id: 9, 
           body: "You'd better change me !",
           bodyHTML: "<p>You'd better change me !</p>",
           lastUpdate: 0
@@ -34,6 +35,7 @@ export default {
         }
        },
       getters: { 
+        user_id: state => state.id,
         user_body: state => state.body,
         user_body_html: state => state.bodyHTML,
         userLastUpdate: state => state.lastUpdate

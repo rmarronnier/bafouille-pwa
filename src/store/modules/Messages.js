@@ -20,20 +20,6 @@ export default {
 
     },
     actions: {
-      getMessages({commit}, pair_id){
-        return new Promise((resolve, reject) => {
-          ApiService("getmessages", pair_id)
-          .then(resp =>resp.json())
-          .then(newMessages =>  {
-            commit('updateMessages', newMessages)
-            resolve(newMessages)
-          })
-          .catch(err => {
-            commit('auth_error', err)
-            reject(err)
-          })
-        })
-      },
       postMessage({ commit, dispatch }, message) {
         return new Promise((resolve, reject) => {
           ApiService("postmessage", message)
