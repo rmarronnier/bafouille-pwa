@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import Messages from "Messages.vue";
-import WriteMessage from "WriteMessage.vue";
+import Messages from './Messages.vue';
+import WriteMessage from './WriteMessage.vue';
 
 export default {
   name: "Pairs",
