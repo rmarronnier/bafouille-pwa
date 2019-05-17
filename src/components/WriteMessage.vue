@@ -1,5 +1,5 @@
 <template>
- <main class="container ui grid"><h1>Write your messagr</h1>
+ <main class="container ui grid"><h1>Write your message</h1>
 <form @submit.prevent="sendmessage">
 <v-textarea
           solo
@@ -24,7 +24,7 @@ export default {
    data(){
       return {
         body : "",
-        pair_id : 0
+        pair_id : 1
       }
     },
 
@@ -34,7 +34,7 @@ export default {
           body: this.body,
           pair_id: this.$store.getters.pairs['0']['id']
         }
-        this.$store.dispatch('postMessage', data)
+        this.$store.dispatch('postMessage', JSON.stringify(data))
        .then(() => this.$router.push('/read'))
        .catch(err => (err))
       }

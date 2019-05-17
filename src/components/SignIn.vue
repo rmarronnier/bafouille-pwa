@@ -1,54 +1,49 @@
 <template>
- <main class="container ui grid"><h1>Sign In</h1>
-<form @submit.prevent="signin">
-  <div class="form-group">
-          <v-text-field
-            v-model="email"
-            name="email"
-            type="email"
-            required
-            autofocus
-            label="E-mail"
-          ></v-text-field>
-  </div>
-  <div class="form-group">
-              <v-text-field
-            v-model="password"
-            name="password"
-            type="password"
-            hint="For example : 123456"
-            required
-            label="Password"
-          ></v-text-field>
-  </div>
-  <v-btn flat type="submit">Sign In</v-btn>
-</form>
+  <main class="container ui grid">
+    <h1>Sign In</h1>
+    <form @submit.prevent="signin">
+      <div class="form-group">
+        <v-text-field v-model="email" name="email" type="email" required autofocus label="E-mail"></v-text-field>
+      </div>
+      <div class="form-group">
+        <v-text-field
+          v-model="password"
+          name="password"
+          type="password"
+          hint="For example : 123456"
+          required
+          label="Password"
+        ></v-text-field>
+      </div>
+      <v-btn flat type="submit">Sign In</v-btn>
+    </form>
 
-<v-btn flat to="/signup">Don't have an account yet?</v-btn>
-</main>
+    <v-btn flat to="/signup">Don't have an account yet?</v-btn>
+  </main>
 </template>
 
 <script>
 export default {
-  name: 'SignIn',
+  name: "SignIn",
 
-   data(){
-      return {
-        email : "",
-        password : ""
-      }
-    },
+  data() {
+    return {
+      email: "",
+      password: ""
+    };
+  },
 
-    methods: {
-      signin: function () {
-        let email = this.email 
-        let password = this.password
-        this.$store.dispatch('signin', { email, password })
-       .then(() => this.$router.push('/read'))
-       .catch(err => (err))
-      }
+  methods: {
+    signin: function() {
+      let email = this.email;
+      let password = this.password;
+      this.$store
+        .dispatch("signin", { email, password })
+        .then(() => this.$router.push("/read"))
+        .catch(err => err);
     }
-}
+  }
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

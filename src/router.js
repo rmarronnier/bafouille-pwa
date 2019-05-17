@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Read from './views/Read.vue'
-import Pairs from './views/Pairs.vue'
+import pairs from './views/Pairs.vue'
 import Messages from './views/Messages.vue'
 import SignUpPage from './views/SignUpPage.vue'
 import SignInPage from './views/SignInPage.vue'
@@ -46,7 +46,7 @@ export default new Router({
     {
       path: '/pairs',
       name: 'pairs',
-      component: Pairs,
+      component: pairs,
       meta: { 
         requiresAuth: true
       }

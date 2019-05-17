@@ -48,7 +48,7 @@ var ressource, method
             break;
 
         case "postmessage":
-        ressource = "pairs"
+        ressource = "pair"
         method = "POST"
             break;
 
