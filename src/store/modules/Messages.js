@@ -23,9 +23,10 @@ export default {
     postMessage({ dispatch }, message) {
       return new Promise((resolve, reject) => {
         ApiService("postmessage", message)
-          .then(resp => {
-            dispatch('updatePairs', resp)
-            resolve(resp)
+        .then(resp =>resp.json())
+          .then(rawPairs => {
+            dispatch('cleanPairs', rawPairs)
+            resolve(rawPairs)
           })
           .catch(err => {
             dispatch('auth_error')
