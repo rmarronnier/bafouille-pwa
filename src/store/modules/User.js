@@ -24,6 +24,7 @@ export default {
             .then(resp =>  resp.json())
               .then (body => {
               commit('updateBody', body)
+              commit('setNotification', 'Profile updated !')
               //commit('updateBodyHTML', JSON.stringify(resp["bodyHTML"]))
               resolve(body)
             })

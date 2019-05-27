@@ -6,6 +6,7 @@ import User from './modules/User'
 import Profiles from './modules/Profiles'
 import Pairs from './modules/Pairs'
 import Messages from './modules/Messages'
+import Notifications from './modules/Notifications'
 
 
 Vue.use(Vuex)
@@ -21,7 +22,8 @@ export default new Vuex.Store({
     user: User,
     profiles: Profiles,
     pairs: Pairs,
-    messages: Messages
+    messages: Messages,
+    notifications: Notifications
   },
   state: { },
   mutations: { },

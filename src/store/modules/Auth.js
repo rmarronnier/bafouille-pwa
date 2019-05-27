@@ -39,6 +39,7 @@ export default {
         ApiService("signin", JSON.stringify(user))
           .then(resp => {
             commit('auth_success', user)
+            commit('setNotification', 'Welcome back!')
             dispatch('getProfiles')
             dispatch('getPairs')
             dispatch('getMessages')
@@ -74,6 +75,7 @@ export default {
         ApiService("logout")
           .then(resp => {
             commit('logout_success')
+            commit('setNotification', 'See you soon!')
             resolve(resp)
           })
           .catch(err => {

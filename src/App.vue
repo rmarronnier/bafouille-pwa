@@ -16,12 +16,17 @@
   </v-toolbar>
   <v-content>
     <v-container fluid>
+      <Notifications />
       <router-view></router-view>
     </v-container>
   </v-content>
   <v-footer app>
        <v-spacer></v-spacer>
     <v-btn flat to="/about"> About</v-btn></v-footer>
+    <!-- <v-snackbar v-on:notification="notificationText = $event">
+      {{ notificationText }}sddslkqsldklmqskd
+    </v-snackbar> -->
+    
 </v-app>
 
 
@@ -31,12 +36,23 @@
 </template>
 
 <script>
+  import Notifications from '@/components/Notifications.vue'
+
 
   export default {
+      components: {
+      Notifications
+    },
     computed : {
       isLoggedIn : function(){ return this.$store.getters.isLoggedIn}
     },
+  //   data: {
+  //   notificationText: ''
+  // },
     methods: {
+       notification: function (text) {
+    this.notificationText = text
+  },
       logout: function () {
         this.$store.dispatch('logout')
         .then(() => {

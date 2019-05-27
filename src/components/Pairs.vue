@@ -4,7 +4,7 @@
       <article>
         {{ pair.users[0].body }}
         <Messages v-bind:messages="pair.messages"></Messages>
-        <WriteMessage></WriteMessage>
+        <WriteMessage v-bind:pair_id="pair.id"></WriteMessage>
       </article>
     </div>
   </section>

@@ -20,11 +20,13 @@
 <script>
 export default {
   name: 'WriteMessage',
-
+props : {
+      pair_id : Number
+    },
    data(){
       return {
         body : "",
-        pair_id : 1
+        pair_id : this.pair_id
       }
     },
 
@@ -32,10 +34,10 @@ export default {
       sendmessage: function () {
           let data = {
           body: this.body,
-          pair_id: this.$store.getters.pairs['0']['id']
+          pair_id: this.pair_id
         }
         this.$store.dispatch('postMessage', JSON.stringify(data))
-       .then(() => this.$router.push('/read'))
+       //.then(() => this.$router.push('/read'))
        .catch(err => (err))
       }
     }

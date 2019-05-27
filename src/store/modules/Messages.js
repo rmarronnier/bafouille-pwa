@@ -20,12 +20,13 @@ export default {
 
   },
   actions: {
-    postMessage({ dispatch }, message) {
+    postMessage({ commit, dispatch }, message) {
       return new Promise((resolve, reject) => {
         ApiService("postmessage", message)
         .then(resp =>resp.json())
           .then(rawPairs => {
             dispatch('cleanPairs', rawPairs)
+            commit('setNotification', 'Message sent !')
             resolve(rawPairs)
           })
           .catch(err => {
