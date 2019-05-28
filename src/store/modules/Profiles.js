@@ -37,9 +37,10 @@ const actions = {
 
   reachOut({ commit, dispatch }, profileID) {
     return new Promise((resolve, reject) => {
-      ApiService("reachout", JSON.stringify(profileID))
+      ApiService("reachout", profileID)
         .then(resp => {
           commit('removeProfile', profileID)
+          commit('setNotification', 'You reached this person. Congrats !')
           resolve(resp)
         })
         .catch(err => {
@@ -52,9 +53,10 @@ const actions = {
 
   blockOut({ commit, dispatch }, profileID) {
     return new Promise((resolve, reject) => {
-      ApiService("blockout", JSON.stringify(profileID))
+      ApiService("blockout", profileID)
         .then(resp => {
           commit('removeProfile', profileID)
+          commit('setNotification', 'You blocked out one bugger, well done !')
           resolve(resp)
         })
         .catch(err => {

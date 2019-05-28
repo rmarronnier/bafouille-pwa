@@ -5,17 +5,8 @@
         v-bind:key="profile.id"
       >
       <v-card>
-                    <v-btn
-              color="pink"
-              dark
-              small
-              absolute
-              bottom
-              left
-              fab
-            >
-              <v-icon>add</v-icon>
-            </v-btn>
+          <Reachout v-bind:profile="profile.id"/>
+          <Blockout v-bind:profile="profile.id"/>
          <v-card-text>{{ profile.body }}</v-card-text> </v-card>
         
       </div>
@@ -23,10 +14,16 @@
 </template>
 
 <script>
+import Reachout from '@/components/Reachout.vue';
+import Blockout from '@/components/Blockout.vue';
 export default {
     name : 'Read',
      computed : {
        profiles : function(){ return this.$store.getters.profiles}
-     }
+     },
+  components: {
+    Reachout,
+    Blockout
+  }
 }
 </script>
