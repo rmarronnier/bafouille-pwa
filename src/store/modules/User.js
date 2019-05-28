@@ -2,12 +2,17 @@ import ApiService from "@/API/api";
 
 export default {
       state: {
-          id: 9, 
+          id: Number, 
           body: "You'd better change me !",
           bodyHTML: "<p>You'd better change me !</p>",
           lastUpdate: 0
        },
-      mutations: { 
+      mutations: {
+        updateUser(state, user){
+          state.id = user.id
+          state.body = user.body
+          state.lastUpdate = Date.now()
+        }, 
         updateBody(state, body){
           state.body = body
           state.lastUpdate = Date.now()

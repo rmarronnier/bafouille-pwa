@@ -37,13 +37,15 @@ export default {
       return new Promise((resolve, reject) => {
         commit('auth_request')
         ApiService("signin", JSON.stringify(user))
-          .then(resp => {
-            commit('auth_success', user)
+        .then(resp => resp.json())
+          .then(user => {
+            commit('auth_success')
+            commit('updateUser', user)
             commit('setNotification', 'Welcome back!')
             dispatch('getProfiles')
             dispatch('getPairs')
             dispatch('getMessages')
-            resolve(resp)
+            resolve(user)
           })
           .catch(err => {
             commit('auth_error')
@@ -58,7 +60,7 @@ export default {
         ApiService("register", JSON.stringify(user))
           .then(resp => resp.json())
           .then(profiles => {
-            commit('auth_success', user)
+            commit('auth_success')
             commit('updateProfiles', profiles)
             resolve(profiles)
           })
