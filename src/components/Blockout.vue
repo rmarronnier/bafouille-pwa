@@ -4,7 +4,7 @@
               color="pink"
               dark
               small
-              absolute
+              fixed
               bottom
               right
               fab

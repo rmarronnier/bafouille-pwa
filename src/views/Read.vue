@@ -1,13 +1,13 @@
 <template>
   <section class="read">
       <div
-        v-for="profile in profiles"
         v-bind:key="profile.id"
       >
       <v-card>
           <Reachout v-bind:profile="profile.id"/>
           <Blockout v-bind:profile="profile.id"/>
-         <v-card-text>{{ profile.body }}</v-card-text> </v-card>
+         <v-card-text class="profile">{{ profile.body }}</v-card-text> 
+         </v-card>
         
       </div>
   </section>
@@ -19,7 +19,7 @@ import Blockout from '@/components/Blockout.vue';
 export default {
     name : 'Read',
      computed : {
-       profiles : function(){ return this.$store.getters.profiles}
+       profile : function(){ return this.$store.getters.profiles[0]}
      },
   components: {
     Reachout,
@@ -27,3 +27,18 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.v-card__text.profile{
+  padding: 6%;
+
+width: 100%;
+
+line-height: 3em;
+
+text-align: left;
+
+font-size: 22px;
+}
+</style>
+

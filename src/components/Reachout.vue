@@ -1,17 +1,18 @@
 <template>
 <form @submit.prevent="reachout">
 <v-btn
-              color="pink"
-              dark
-              small
-              absolute
+              color="transparent"
+              x-large
               bottom
               left
+              fixed
               fab
               v-model="profile"
               type="submit"
             >
-              <v-icon>Reachout !</v-icon>
+              <v-icon class="reachblock"
+              small
+              >Reachout !</v-icon>
             </v-btn>
 </form>
 </template>
@@ -43,4 +44,8 @@ props : {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.reachblock {
+    color: white !important;
+text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
 </style>

@@ -7,6 +7,7 @@ import Profiles from './modules/Profiles'
 import Pairs from './modules/Pairs'
 import Messages from './modules/Messages'
 import Notifications from './modules/Notifications'
+import Configuration from './modules/Configuration'
 
 
 Vue.use(Vuex)
@@ -23,7 +24,8 @@ export default new Vuex.Store({
     profiles: Profiles,
     pairs: Pairs,
     messages: Messages,
-    notifications: Notifications
+    notifications: Notifications,
+    configuration: Configuration
   },
   state: { },
   mutations: { },
