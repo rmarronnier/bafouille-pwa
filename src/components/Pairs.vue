@@ -2,7 +2,7 @@
   <section class="pairs">
     <div v-for="pair in pairs" v-bind:key="pair.id">
       <article>
-        {{ pair.users[0].body }}
+        {{ pair.users.body }}
         <Messages v-bind:messages="pair.messages"></Messages>
         <WriteMessage v-bind:pair_id="pair.id"></WriteMessage>
       </article>
@@ -25,5 +25,5 @@ export default {
     Messages,
     WriteMessage
   }
-};
+}
 </script>

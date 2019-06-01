@@ -1,8 +1,25 @@
 <template>
   <div class="text-xs-center">
-    <v-menu v-model="menu" :close-on-content-click="false" :nudge-width="200" offset-x>
+    <v-menu
+      v-model="menu"
+      :close-on-content-click="false"
+      :nudge-width="200"
+      offset-x
+    >
       <template v-slot:activator="{ on }">
-        <v-btn color="black" dark v-on="on">Your own personal self account menu</v-btn>
+        <v-btn
+          color="transparent"
+          dark
+          flat=""
+          v-on="on"
+          large
+        >
+          <img 
+              src="../assets/bafouille.svg" 
+    alt="Bafouille logo"
+          width="150"
+          />
+        </v-btn>
       </template>
 
       <v-card>
@@ -18,7 +35,11 @@
             </v-list-tile-content>
 
             <v-list-tile-action>
-              <v-btn :class="fav ? 'red--text' : ''" icon @click="fav = !fav">
+              <v-btn
+                :class="fav ? 'red--text' : ''"
+                icon
+                @click="fav = !fav"
+              >
                 <v-icon>favorite</v-icon>
               </v-btn>
             </v-list-tile-action>
@@ -45,12 +66,10 @@
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn flat to="/write">Your profile</v-btn>
-          <pairs-button/>
-          <profiles-button/>
-          <v-btn flat>
-            <a @click="logout">Logout</a>
-          </v-btn>
+          <v-btn flat to="/">Home</v-btn>
+          <v-btn flat v-if="!isLoggedIn" to="/signup">Sign up</v-btn>
+                    <v-btn flat v-if="!isLoggedIn" to="/signin">Sign in</v-btn>
+            <v-btn flat to="/about">About</v-btn>
         </v-card-actions>
       </v-card>
     </v-menu>
@@ -58,35 +77,32 @@
 </template>
 
 <script>
-import PairsButton from "./PairsButton.vue";
-import ProfilesButton from "./ProfilesButton.vue";
-export default {
-  name: "AccountMenu",
-  components: {
-    PairsButton,
-    ProfilesButton
-  },
-  data: () => ({
-    fav: true,
-    menu: false,
-    message: false,
-    hints: true,
-    darkMode: false
-  }),
-  computed: {
+  export default {
+      name: 'MainMenu',
+    data: () => ({
+      fav: true,
+      menu: false,
+      message: false,
+      hints: true,
+      darkMode: false
+    }),
+      computed: {
+    isLoggedIn: function() {
+      return this.$store.getters.isLoggedIn
+    },
     darkMode: function() {
-      return this.$store.getters.darkMode;
+      return this.$store.getters.darkMode
     }
-  },
-  methods: {
-    logout: function() {
+    },
+    methods: {
+        logout: function() {
       this.$store.dispatch("logout").then(() => {
-        this.$router.push("/signin");
-      });
+        this.$router.push("/signin")
+      })
     },
     setDarkMode: function() {
-      this.$store.commit("setDarkMode");
+      this.$store.commit('setDarkMode')
+    }
     }
   }
-};
 </script>

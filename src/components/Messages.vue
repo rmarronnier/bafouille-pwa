@@ -2,7 +2,7 @@
       <div>
 
 
-<v-timeline>
+<v-timeline :dense="$vuetify.breakpoint.smAndDown">
     <v-timeline-item
       v-for="message in messages" v-bind:key="message.id"
       color="red lighten-2"
@@ -12,7 +12,7 @@
         <span>{{ message.created_at }}</span>
       </template>
       <v-card class="elevation-2">
-        <v-card-text>
+        <v-card-text class="message">
           {{ message.body }}
         </v-card-text>
       </v-card>
@@ -30,3 +30,17 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+.v-card__text.message {
+  padding: 6%;
+
+width: 100%;
+
+line-height: 3em;
+
+text-align: left;
+
+font-size: 22px;
+}
+</style>
