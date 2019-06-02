@@ -45,7 +45,7 @@
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn flat to="/write">Your profile</v-btn>
+          <v-btn flat to="/actions">Act now</v-btn>
           <pairs-button/>
           <profiles-button/>
           <v-btn flat>

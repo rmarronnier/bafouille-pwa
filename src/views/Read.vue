@@ -1,5 +1,24 @@
 <template>
+
   <section class="read">
+            <v-tabs
+          v-model="model"
+          centered
+          slider-color="black"
+        >
+          <v-tab
+          >
+            Read Profiles
+          </v-tab>
+          <v-tab
+          >
+            Your matches
+          </v-tab>
+                    <v-tab
+          >
+            Edit your profile
+          </v-tab>
+        </v-tabs>
       <div
         v-bind:key="profile.id"
       >
