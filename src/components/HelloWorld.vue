@@ -79,8 +79,7 @@
       which means you can't post pictures or videos
     </v-card-text>
   </v-card>
-
-
+<SignUpSteppers />
     </v-flex>
       </v-layout>
 
@@ -88,8 +87,13 @@
 </template>
 
 <script>
+import SignUpSteppers from '@/components/SignUpSteppers.vue'
+
 export default {
   name: 'HelloWorld',
+  components: {
+    SignUpSteppers
+  },
   props: {
     msg: String
   }

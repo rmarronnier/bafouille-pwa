@@ -1,6 +1,7 @@
 <template>
 <form @submit.prevent="reachout">
 <v-btn
+class="reachbutton"
               color="transparent"
               x-large
               bottom
@@ -44,6 +45,10 @@ props : {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.reachbutton {
+  margin: 20px;
+}
+
 .reachblock {
     color: white !important;
 text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;

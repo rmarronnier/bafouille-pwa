@@ -1,9 +1,22 @@
 <template>
   <section class="actions">
-    <v-tabs centered slider-color="black">
-      <v-tab href="#tab-1">Profiles</v-tab>
+    <v-tabs grow slider-color="black">
+      <v-tab href="#tab-1">
+                  <v-badge inline>
+          <template v-slot:badge>
+            <span>{{ profiles_quantity }}</span>
+          </template>
+          Profiles
+                  </v-badge>
+          </v-tab>
 
-      <v-tab href="#tab-2">Matches</v-tab>
+      <v-tab href="#tab-2">
+        <v-badge inline>
+          <template v-slot:badge>
+            <span>{{ pairs_quantity }}</span>
+          </template>Matches
+        </v-badge>
+      </v-tab>
 
       <v-tab href="#tab-3">Your profile</v-tab>
 
@@ -33,9 +46,17 @@ export default {
     ReadProfiles,
     Pairs,
     WriteBody
+  },
+  computed: {
+    pairs_quantity: function() {
+      return this.$store.getters.pairs_quantity;
+    },
+    profiles_quantity: function() {
+      return this.$store.getters.profiles_quantity;
+    }
   }
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 </style>

@@ -5,8 +5,9 @@ import router from './router'
 import store from './store/'
 import './registerServiceWorker'
 import 'vuetify/dist/vuetify.min.css'
+import VueMoment from 'vue-moment'
 
-Vue.use(Vuetify)
+Vue.use(Vuetify, VueMoment)
 
 Vue.config.productionTip = false
 

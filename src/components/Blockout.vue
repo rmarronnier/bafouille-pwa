@@ -1,7 +1,8 @@
 <template>
 <form @submit.prevent="blockout">
 <v-btn
-              color="pink"
+class="blockbutton"
+              color="red"
               dark
               small
               fixed
@@ -43,4 +44,9 @@ props : {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.blockbutton {
+  margin: 20px;
+      color: white !important;
+text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
 </style>

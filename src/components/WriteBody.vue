@@ -36,7 +36,6 @@ created(){
           body: this.body,
         }
         this.$store.dispatch('changeBody', data)
-       .then(() => this.$router.push('/read'))
        .catch(err => (err))
       }
     }
