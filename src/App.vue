@@ -8,27 +8,6 @@
             <v-spacer></v-spacer>
       <AccountMenu v-if="isLoggedIn"/>
 </v-toolbar>
-
-        <v-tabs
-          v-model="model"
-          centered
-          color="black"
-          slider-color="black"
-        >
-          <v-tab
-          >
-            Read Profiles
-          </v-tab>
-          <v-tab
-          >
-            Your matches
-          </v-tab>
-                    <v-tab
-          >
-            Edit your profile
-          </v-tab>
-        </v-tabs>
-
       <v-content>
         <v-container fluid>
           <Notifications/>
