@@ -29,10 +29,18 @@ export default {
       })
     },
     cleanPairs({ commit, rootState }, rawPairs) {
-      var user_id = rootState.user.user_id
-      rawPairs.forEach(element => {
-        var pos = element.users.indexOf(user_id)
-        element.users.splice(pos, 1)
+      var user_id = rootState.user.id
+      rawPairs.forEach(pair => {
+pair.users.forEach(user => {
+  if (user['id'] == user_id) {
+    var pos = pair.users.indexOf(user)
+    pair.users.splice(pos, 1)
+  }
+}
+  )
+        // var pos = element.users.indexOf(user_id)
+        // console.log(pos)
+        // pair.users.splice(pos, 1)
       })
       commit('updatePairs', rawPairs);
     }

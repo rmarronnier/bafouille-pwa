@@ -6,7 +6,7 @@
         <MainMenu/>
               </v-toolbar-items>
             <v-spacer></v-spacer>
-      <AccountMenu v-if="isLoggedIn"/>
+      <AccountMenu/>
 </v-toolbar>
       <v-content>
         <v-container fluid>

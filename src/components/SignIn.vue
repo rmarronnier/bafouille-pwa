@@ -39,7 +39,7 @@ export default {
       let password = this.password;
       this.$store
         .dispatch("signin", { email, password })
-        .then(() => this.$router.push("/read"))
+        .then(() => this.$router.push("/actions"))
         .catch(err => err);
     }
   }

@@ -18,9 +18,9 @@
             <v-list-tile-action>
               
 
-<v-dialog v-model="dialog" fullscreen transition="dialog-bottom-transition">
+<v-dialog content-class="correspondence" v-model="dialog" fullscreen transition="dialog-bottom-transition">
 <template v-slot:activator="{ on }">
-<v-button v-on="on">Correspondence</v-button>
+<v-btn flat outline small round v-on="on">Correspondence</v-btn>
 </template>
             <v-btn fab fixed @click="dialog = false">
             close
@@ -30,9 +30,9 @@
 </v-dialog>
 
             </v-list-tile-action>
-                        <v-list-tile-action>
+                        <!-- <v-list-tile-action>
               <v-icon color="red">delete</v-icon>
-            </v-list-tile-action>
+            </v-list-tile-action> -->
           </v-list-tile>
         </v-list>
 
@@ -64,3 +64,12 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+
+  .correspondence{
+  background-color: white;
+  }
+
+</style>
+

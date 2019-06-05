@@ -7,7 +7,7 @@
           v-model="email"
           name="email"
           type="email"
-          hint="For example : epresley@area51.us"
+          hint="For example : epresley@area51.us. Note : your email adress won't be sold / communicated to anyone. It's just to eventually save this place from an onslaught of bots."
           required
           label="E-mail"
         ></v-text-field>
@@ -17,7 +17,7 @@
           v-model="password"
           name="password"
           type="password"
-          hint="For example : 123456"
+          hint="For example : 123456. No, seriously choose something harder to guess, but in anycase DON'T CHOOSE A PASSWORD USED ELSEWHERE !"
           required
           label="Password"
         ></v-text-field>

@@ -13,8 +13,6 @@
         </v-textarea>
   <v-btn flat type="submit">Save !</v-btn>
 </form>
-
-<v-btn flat to="/read">Don't want to write yet?</v-btn>
 </main>
 </template>
 
