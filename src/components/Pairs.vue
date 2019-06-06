@@ -20,19 +20,27 @@
 
 <v-dialog content-class="correspondence" v-model="dialog" fullscreen transition="dialog-bottom-transition">
 <template v-slot:activator="{ on }">
-<v-btn flat outline small round v-on="on">Correspondence</v-btn>
+<!-- <v-btn flat outline small round v-on="on">Correspondence</v-btn> -->
+        <v-badge inline>
+          <template v-slot:badge>
+
+            <span>{{ pair.messages.length }}</span>
+          </template><v-icon v-on="on">mdi-chat</v-icon>
+        </v-badge>
 </template>
-            <v-btn fab fixed @click="dialog = false">
-            close
+<v-btn fixed fab @click="dialog = false">
+            <v-icon x-large color="black">
+            mdi-close
+          </v-icon>
           </v-btn>
           <Messages v-bind:messages="pair.messages"></Messages>
         <WriteMessage v-bind:pair_id="pair.id"></WriteMessage>
 </v-dialog>
 
             </v-list-tile-action>
-                        <!-- <v-list-tile-action>
-              <v-icon color="red">delete</v-icon>
-            </v-list-tile-action> -->
+                        <v-list-tile-action>
+              <v-icon color="red">mdi-delete</v-icon>
+            </v-list-tile-action>
           </v-list-tile>
         </v-list>
 

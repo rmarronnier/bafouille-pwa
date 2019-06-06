@@ -6,8 +6,12 @@ import store from './store/'
 import './registerServiceWorker'
 import 'vuetify/dist/vuetify.min.css'
 import VueMoment from 'vue-moment'
+import '@mdi/font/css/materialdesignicons.css' // Ensure you are using css-loader
 
-Vue.use(Vuetify, VueMoment)
+Vue.use(Vuetify, VueMoment,
+  {
+    iconfont: 'mdi'
+  })
 
 Vue.config.productionTip = false
 

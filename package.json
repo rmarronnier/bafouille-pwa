@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@gfx/zopfli": "^1.0.12",
+    "@mdi/font": "^3.6.95",
     "@vue/cli-plugin-babel": "^3.7.0",
     "@vue/cli-plugin-eslint": "^3.7.0",
     "@vue/cli-plugin-pwa": "^3.7.0",

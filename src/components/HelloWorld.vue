@@ -1,87 +1,27 @@
 <template>
   <div class="hello">
-      <v-layout justify-center>
-    <v-flex xs12 sm6 offset-sm3>
     <h1>Bafouille is ...</h1>
 
+<v-card>
+  <v-card-text>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore distinctio odit dolore, quae quam, incidunt tempora in voluptatibus id repellat voluptatem. Officiis a dolor accusantium ut, ratione adipisci quasi nam.
+  </v-card-text>
+</v-card>
 
+<v-card>
+  <v-card-text>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore distinctio odit dolore, quae quam, incidunt tempora in voluptatibus id repellat voluptatem. Officiis a dolor accusantium ut, ratione adipisci quasi nam.
+  </v-card-text>
+</v-card>
 
+<v-card>
+  <v-card-text>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore distinctio odit dolore, quae quam, incidunt tempora in voluptatibus id repellat voluptatem. Officiis a dolor accusantium ut, ratione adipisci quasi nam.
+  </v-card-text>
+</v-card>
 
-
-
-
-        <v-container fluid grid-list-sm>
-          <v-layout row wrap>
-            <v-flex xs4>
-              <v-card
-    class="mx-auto"
-    max-width="400"
-  >
-    <v-card-title>
-      <h2>a text-based meeting app</h2>
-    </v-card-title>
-
-    <v-card-text class="headline font-weight-bold">
-      which means you can't post pictures or videos
-    </v-card-text>
-  </v-card>
-
-  <v-card
-    class="mx-auto"
-    max-width="400"
-  >
-    <v-card-title>
-      <h2 class="headline font-weight-bold">a text-based meeting app</h2>
-    </v-card-title>
-
-    <v-card-text>
-      which means you can't post pictures or videos
-    </v-card-text>
-  </v-card>
-  
-            </v-flex>
-          </v-layout>
-        </v-container>
-
-
-
-
-
-
-
-
-
-
-
-
-<v-card
-    class="mx-auto"
-    max-width="400"
-  >
-    <v-card-title>
-      <h2>a text-based meeting app</h2>
-    </v-card-title>
-
-    <v-card-text class="headline font-weight-bold">
-      which means you can't post pictures or videos
-    </v-card-text>
-  </v-card>
-
-<v-card
-    class="mx-auto"
-    max-width="400"
-  >
-    <v-card-title>
-      <h2>a text-based meeting app</h2>
-    </v-card-title>
-
-    <v-card-text class="headline font-weight-bold">
-      which means you can't post pictures or videos
-    </v-card-text>
-  </v-card>
 <SignUpSteppers />
-    </v-flex>
-      </v-layout>
+
 
   </div>
 </template>
