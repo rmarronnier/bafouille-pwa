@@ -25,7 +25,8 @@
       </v-tab-item>
 
       <v-tab-item :value="'tab-2'">
-        <Pairs/>
+        <Pairs v-if="pairs_quantity > 0"/>
+            <NoMatch v-else/>
       </v-tab-item>
 
       <v-tab-item :value="'tab-3'">
@@ -36,16 +37,18 @@
 </template>
 
 <script>
-import ReadProfiles from "@/components/ReadProfiles.vue";
-import Pairs from "@/components/Pairs.vue";
-import WriteBody from "@/components/WriteBody.vue";
+import ReadProfiles from "@/components/ReadProfiles.vue"
+import Pairs from "@/components/Pairs.vue"
+import WriteBody from "@/components/WriteBody.vue"
+import NoMatch from "@/components/NoMatch.vue"
 
 export default {
   name: "Actions",
   components: {
     ReadProfiles,
     Pairs,
-    WriteBody
+    WriteBody,
+    NoMatch
   },
   computed: {
     pairs_quantity: function() {

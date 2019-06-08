@@ -20,23 +20,21 @@
   </v-card-text>
 </v-card>
 
-<SignUpSteppers />
+<v-btn x-large v-if="!isLoggedIn" to="/signup">Sign up</v-btn>
 
 
   </div>
 </template>
 
 <script>
-import SignUpSteppers from '@/components/SignUpSteppers.vue'
 
 export default {
   name: 'HelloWorld',
-  components: {
-    SignUpSteppers
-  },
-  props: {
-    msg: String
-  }
+computed: {
+  isLoggedIn: function() {
+      return this.$store.getters.isLoggedIn
+    }
+}
 }
 </script>
 

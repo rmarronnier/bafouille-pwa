@@ -4,28 +4,12 @@
       <template v-slot:activator="{ on }">
         <v-btn v-on="on">Menu</v-btn>
       </template>
-
       <v-card>
-        <v-list>
-          <v-list-tile >
-            <v-list-tile-content>
-          <v-btn flat to="/">Home</v-btn>
-            </v-list-tile-content>
-          </v-list-tile>
-                    <v-list-tile >
-            <v-list-tile-content>
-          <v-btn flat to="/about">About</v-btn>
-            </v-list-tile-content>
-          </v-list-tile>
-        </v-list>
-
-        <v-divider></v-divider>
-
                 <v-list>
                     <v-list-tile >
             <v-list-tile-content>
           <v-btn flat v-if="!isLoggedIn" to="/signup">Sign up</v-btn>
-<v-btn flat v-if="isLoggedIn" to="/actions">Act now</v-btn>
+<v-btn flat v-if="isLoggedIn" to="/actions">Action !</v-btn>
                       </v-list-tile-content>
           </v-list-tile>
                             <v-list-tile >

@@ -6,5 +6,8 @@ export default {
 setNotification (state, notificationText) {
     state.notificationText = notificationText
 }
+    },
+    getters: {
+        notification: state => state.notificationText
     }
 }

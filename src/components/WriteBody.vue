@@ -34,6 +34,7 @@ created(){
           body: this.body,
         }
         this.$store.dispatch('changeBody', data)
+        this.$router.push("/actions")
        .catch(err => (err))
       }
     }

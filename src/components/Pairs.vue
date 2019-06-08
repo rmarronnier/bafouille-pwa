@@ -20,7 +20,6 @@
 
 <v-dialog content-class="correspondence" v-model="dialog" fullscreen transition="dialog-bottom-transition">
 <template v-slot:activator="{ on }">
-<!-- <v-btn flat outline small round v-on="on">Correspondence</v-btn> -->
         <v-badge inline>
           <template v-slot:badge>
 

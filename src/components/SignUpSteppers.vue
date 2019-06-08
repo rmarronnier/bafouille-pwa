@@ -1,24 +1,20 @@
 <template>
-  <v-stepper v-model="e6" vertical>
-    <v-stepper-step :complete="e6 > 1" step="1">
-      Select an app
-      <small>Summarize if needed</small>
+  <v-stepper v-model="stepConstraint" vertical>
+    <v-stepper-step :complete="stepConstraint > 1" step="1">
+      Open yet another account on the Internet
+      <small>Free as love can be</small>
     </v-stepper-step>
 
     <v-stepper-content step="1">
       <SignUp />
-      <v-btn color="primary" @click="e6 = 2">Continue</v-btn>
-      <v-btn flat>Cancel</v-btn>
     </v-stepper-content>
 
-    <v-stepper-step :complete="e6 > 2" step="2">Configure analytics for this app</v-stepper-step>
+    <v-stepper-step :complete="stepConstraint > 2" step="2">Time to be inspired</v-stepper-step>
 
     <v-stepper-content step="2">
       <WriteBody />
-      <v-btn color="primary" @click="e6 = 3">Continue</v-btn>
-      <v-btn flat>Cancel</v-btn>
     </v-stepper-content>
-    
+
   </v-stepper>
 </template>
 
@@ -31,10 +27,26 @@ export default {
     SignUp,
     WriteBody
   },
-  data () {
-      return {
-        e6: 1
-      }
+  
+  computed: {
+    accountCreated: function() {
+           return (this.$store.getters.profilesLastUpdate > 0)
+    },
+    bodyUpdated: function() {
+      return (this.$store.getters.userLastUpdate > this.$store.getters.authLastUpdate)
+    },
+    stepConstraint: function() {
+        if (this.accountCreated && !this.bodyUpdated) {
+return 2
+        }
+        else if (this.accountCreated && this.bodyUpdated) {
+            return 3
+        }
+        else {
+            return 1
+        }
+
     }
+  }
 }
 </script>

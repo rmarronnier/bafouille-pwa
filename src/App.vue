@@ -3,7 +3,14 @@
     <v-app :dark="darkMode">
         <v-toolbar app scroll-toolbar-off-screen=true>
 <v-toolbar-items>
-        <MainMenu/>
+<router-link to="/">
+  <img 
+              src="@/assets/bafouille.svg" 
+    alt="Bafouille logo"
+          width="150"
+          to="/"
+          />
+          </router-link>
               </v-toolbar-items>
             <v-spacer></v-spacer>
       <AccountMenu/>
@@ -22,12 +29,10 @@
 
 <script>
 import Notifications from "@/components/Notifications.vue"
-import MainMenu from "@/components/MainMenu.vue"
 import AccountMenu from "@/components/AccountMenu.vue"
 
 export default {
   components: {
-    MainMenu,
     AccountMenu,
     Notifications
   },

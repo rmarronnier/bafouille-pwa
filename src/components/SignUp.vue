@@ -30,7 +30,6 @@
       </div>
       <v-btn flat type="submit">Sign up</v-btn>
     </form>
-
     <hr>
     <v-btn flat to="/signin">Already have an account?</v-btn>
   </main>
@@ -60,7 +59,7 @@ export default {
       };
       this.$store
         .dispatch("register", data)
-        .then(() => this.$router.push("/write"))
+        // .then(() => this.$router.push("/write"))
     }
   }
 };
