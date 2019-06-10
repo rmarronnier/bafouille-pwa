@@ -38,7 +38,7 @@
 
             </v-list-tile-action>
                         <v-list-tile-action>
-              <v-icon color="red">mdi-delete</v-icon>
+              <v-icon @click="blockout(pair.users[0].id)" color="red">mdi-delete</v-icon>
             </v-list-tile-action>
           </v-list-tile>
         </v-list>
@@ -61,8 +61,15 @@ export default {
       return {
         dialog: false,
         notifications: false,
-        sound: true,
-        widgets: false
+      }
+    },
+        methods: {
+      blockout: function (user_id) {
+                  let data = {
+          user_id: user_id
+        }
+        this.$store.dispatch('blockOut', JSON.stringify(data))
+       .catch(err => (err))
       }
     },
   components: {

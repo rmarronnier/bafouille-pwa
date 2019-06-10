@@ -21,7 +21,8 @@
       <v-tab href="#tab-3">Your profile</v-tab>
 
       <v-tab-item :value="'tab-1'">
-        <ReadProfiles/>
+        <ReadProfiles v-if="profiles_quantity > 0"/>
+            <NoProfile v-else/>
       </v-tab-item>
 
       <v-tab-item :value="'tab-2'">
@@ -41,6 +42,7 @@ import ReadProfiles from "@/components/ReadProfiles.vue"
 import Pairs from "@/components/Pairs.vue"
 import WriteBody from "@/components/WriteBody.vue"
 import NoMatch from "@/components/NoMatch.vue"
+import NoProfile from "@/components/NoProfile.vue"
 
 export default {
   name: "Actions",
@@ -48,7 +50,8 @@ export default {
     ReadProfiles,
     Pairs,
     WriteBody,
-    NoMatch
+    NoMatch,
+    NoProfile
   },
   computed: {
     pairs_quantity: function() {

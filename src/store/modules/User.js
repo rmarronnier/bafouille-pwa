@@ -23,7 +23,7 @@ export default {
         }
        },
       actions: {
-        changeBody({commit}, newBody){
+        changeBody({commit, dispatch}, newBody){
           return new Promise((resolve, reject) => {
             ApiService("changebody", JSON.stringify(newBody))
             .then(resp =>  resp.json())
@@ -31,6 +31,8 @@ export default {
               commit('updateBody', body)
               commit('setNotification', 'Profile updated !')
               //commit('updateBodyHTML', JSON.stringify(resp["bodyHTML"]))
+              dispatch('getProfiles')
+              dispatch('getPairs')
               resolve(body)
             })
             .catch(err => {

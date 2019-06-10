@@ -17,14 +17,18 @@
           v-model="password"
           name="password"
           type="password"
-          hint="For example : 123456. No, seriously choose something harder to guess, but in anycase DON'T CHOOSE A PASSWORD USED ELSEWHERE !"
+          hint="At least 8 characters. For example : 12345678. No, seriously choose something harder to guess, but in anycase DON'T CHOOSE A PASSWORD USED ELSEWHERE !"
           required
+          counter
+          :rules="[rules.required, rules.min]"
           label="Password"
         ></v-text-field>
         <v-text-field
           v-model="password_confirmation"
           type="password"
           required
+          counter
+          :rules="[rules.required, rules.min]"
           label="Confirm Password"
         ></v-text-field>
       </div>
@@ -46,8 +50,13 @@ export default {
     return {
       email: "",
       password: "",
-      password_confirmation: ""
+      password_confirmation: "",
       // is_admin : null
+              rules: {
+          required: value => !!value || 'Required.',
+          min: v => v.length >= 8 || 'Min 8 characters',
+          emailMatch: () => ('The email and password you entered don\'t match')
+        }
     };
   },
   methods: {

@@ -49,6 +49,7 @@ export default {
           })
           .catch(err => {
             commit('auth_error')
+            commit('setNotification', 'Email or password invalid :/')
             reject(err)
           })
       })

@@ -40,7 +40,7 @@ export default {
       this.$store
         .dispatch("signin", { email, password })
         .then(() => this.$router.push("/actions"))
-        .catch(err => err);
+        .catch(err => err)
     }
   }
 };
