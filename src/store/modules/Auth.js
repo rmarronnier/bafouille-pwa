@@ -43,8 +43,9 @@ export default {
             commit('updateUser', user)
             commit('setNotification', 'Welcome back!')
             dispatch('getProfiles')
-            dispatch('getPairs')
-            dispatch('getMessages')
+            //dispatch('updateAll')
+            // dispatch('getPairs')
+            // dispatch('getMessages')
             resolve(user)
           })
           .catch(err => {
@@ -67,6 +68,7 @@ export default {
           })
           .catch(err => {
             commit('auth_error', err)
+            commit('setNotification', 'Something went wrong :/')
             reject(err)
           })
       })

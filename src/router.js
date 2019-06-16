@@ -7,7 +7,7 @@ import Actions from './views/Actions.vue'
 import Messages from './views/Messages.vue'
 import SignUpPage from './views/SignUpPage.vue'
 import SignInPage from './views/SignInPage.vue'
-import WriteBody from './components/WriteBody.vue'
+import Write from './views/Write.vue'
 
 Vue.use(Router)
 
@@ -60,7 +60,7 @@ export default new Router({
     {
       path: '/write',
       name: 'write',
-      component: WriteBody
+      component: Write
     },
     {
       path: '/signin',

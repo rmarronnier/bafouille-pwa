@@ -25,8 +25,7 @@ props : {
     },
    data(){
       return {
-        body : "",
-        pair_id : this.pair_id
+        body : ""
       }
     },
 

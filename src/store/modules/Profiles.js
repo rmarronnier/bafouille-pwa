@@ -29,7 +29,7 @@ const actions = {
           resolve(newProfiles)
         })
         .catch(err => {
-          commit('auth_error', err)
+          commit('setNotification', 'Getting new profiles failed')
           reject(err)
         })
     })
@@ -41,10 +41,14 @@ const actions = {
         .then(resp => {
           commit('removeProfile', profileID)
           commit('setNotification', 'You reached this person. Congrats !')
+          if (this.$store.getters.profiles_quantity == 0) {
+            dispatch('getProfiles')
+            dispatch('getPairs')
+          }
           resolve(resp)
         })
         .catch(err => {
-          dispatch('auth_error')
+          commit('setNotification', 'Reaching out failed')
           reject(err)
         })
     })
@@ -57,10 +61,14 @@ const actions = {
         .then(resp => {
           commit('removeProfile', profileID)
           commit('setNotification', 'You blocked out one bugger, well done !')
+          if (this.$store.getters.profiles_quantity == 0) {
+            dispatch('getProfiles')
+            dispatch('getPairs')
+          }
           resolve(resp)
         })
         .catch(err => {
-          dispatch('auth_error')
+          commit('setNotification', 'Blocking out failed')
           reject(err)
         })
     })

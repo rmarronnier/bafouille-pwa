@@ -23,7 +23,7 @@ export default {
             resolve(rawPairs)
           })
           .catch(err => {
-            commit('auth_error', err)
+            commit('setNotification', 'Updatepairs failed for some reason')
             reject(err)
           })
       })

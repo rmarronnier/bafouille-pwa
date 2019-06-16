@@ -25,7 +25,7 @@ export default {
         body : ''
       }
     },
-watch(){
+created(){
     this.body = this.$store.getters.user_body
 },
     methods: {

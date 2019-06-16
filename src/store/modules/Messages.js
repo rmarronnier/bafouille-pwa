@@ -30,7 +30,7 @@ export default {
             resolve(rawPairs)
           })
           .catch(err => {
-            dispatch('auth_error')
+            commit('setNotification', 'Sending message failed...')
             reject(err)
           })
       })

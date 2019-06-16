@@ -68,7 +68,7 @@ export default {
       };
       this.$store
         .dispatch("register", data)
-        // .then(() => this.$router.push("/write"))
+        .then(() => this.$router.push("/write"))
     }
   }
 };

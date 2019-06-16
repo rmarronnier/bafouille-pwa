@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <v-app :dark="darkMode">
-        <v-toolbar app scroll-toolbar-off-screen=true>
+        <v-toolbar app scroll-toolbar-off-screen>
 <v-toolbar-items>
 <router-link to="/">
   <img 

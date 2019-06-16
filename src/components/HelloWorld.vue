@@ -4,7 +4,7 @@
 
 <v-card>
   <v-card-text>
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore distinctio odit dolore, quae quam, incidunt tempora in voluptatibus id repellat voluptatem. Officiis a dolor accusantium ut, ratione adipisci quasi nam.
+    Lorem, test ipsum dolor sit amet consectetur adipisicing elit. Inventore distinctio odit dolore, quae quam, incidunt tempora in voluptatibus id repellat voluptatem. Officiis a dolor accusantium ut, ratione adipisci quasi nam.
   </v-card-text>
 </v-card>
 

@@ -23,6 +23,21 @@ export default {
         }
        },
       actions: {
+/*        updateAll({}){
+          return new Promise((resolve, reject) => {
+            ApiService("me")
+            .then(resp =>  resp.json())
+            .then(data => {
+               //commit('updateUser', )
+               //dispatch('cleanPairs', )
+              resolve(data)
+            })
+            .catch(err => {
+              //commit('auth_error', err)
+              reject(err)
+            })
+          })
+          }, */
         changeBody({commit, dispatch}, newBody){
           return new Promise((resolve, reject) => {
             ApiService("changebody", JSON.stringify(newBody))
@@ -36,7 +51,7 @@ export default {
               resolve(body)
             })
             .catch(err => {
-              commit('auth_error', err)
+              commit('setNotification', 'Updating your profile failed...')
               reject(err)
             })
           })

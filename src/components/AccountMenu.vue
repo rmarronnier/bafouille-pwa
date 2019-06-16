@@ -45,11 +45,8 @@ export default {
   components: {
   },
   data: () => ({
-    fav: true,
     menu: false,
-    message: false,
-    hints: true,
-    darkMode: false
+    message: false
   }),
   computed: {
     isLoggedIn: function() {

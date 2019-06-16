@@ -1,18 +1,18 @@
 <template>
   <div class="signup">
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
-    <SignUpSteppers/>
+    <SignUp />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import SignUpSteppers from '@/components/SignUpSteppers.vue'
+import SignUp from '@/components/SignUp.vue'
 
 export default {
   name: 'signuppage',
   components: {
-    SignUpSteppers
+    SignUp
   }
 }
 </script>
