@@ -42,16 +42,16 @@ export default {
           return new Promise((resolve, reject) => {
             ApiService("changebody", JSON.stringify(newBody))
             .then(resp =>  resp.json())
-              .then (body => {
-              commit('updateBody', body)
+              .then (userdb => {
+              commit('updateBody', userdb.body)
               commit('setNotification', 'Profile updated !')
               //commit('updateBodyHTML', JSON.stringify(resp["bodyHTML"]))
               dispatch('getProfiles')
               dispatch('getPairs')
-              resolve(body)
+              resolve(userdb)
             })
             .catch(err => {
-              commit('setNotification', 'Updating your profile failed...')
+              commit('setNotification', 'Updating your profile failed')
               reject(err)
             })
           })

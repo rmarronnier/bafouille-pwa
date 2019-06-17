@@ -38,15 +38,15 @@ export default {
         commit('auth_request')
         ApiService("signin", JSON.stringify(user))
         .then(resp => resp.json())
-          .then(user => {
+          .then(userdb => {
             commit('auth_success')
-            commit('updateUser', user.data)
+            commit('updateUser', userdb.data)
             commit('setNotification', 'Welcome back!')
             dispatch('getProfiles')
             //dispatch('updateAll')
-            // dispatch('getPairs')
+            dispatch('getPairs')
             // dispatch('getMessages')
-            resolve(user)
+            resolve(userdb)
           })
           .catch(err => {
             commit('auth_error')
@@ -61,10 +61,10 @@ export default {
         commit('auth_request')
         ApiService("register", JSON.stringify(user))
           .then(resp => resp.json())
-          .then(profiles => {
+          .then(userdb => {
             commit('auth_success')
-            commit('updateProfiles', profiles.data)
-            resolve(profiles)
+            commit('updateUser', userdb.data)
+            resolve(userdb)
           })
           .catch(err => {
             commit('auth_error', err)

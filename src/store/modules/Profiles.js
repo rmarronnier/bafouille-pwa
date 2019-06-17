@@ -45,6 +45,7 @@ const actions = {
             dispatch('getProfiles')
             dispatch('getPairs')
           }
+          commit('setNotification', resp.flash.info)
           resolve(resp)
         })
         .catch(err => {
@@ -65,6 +66,7 @@ const actions = {
             dispatch('getProfiles')
             dispatch('getPairs')
           }
+          commit('setNotification', resp.flash.info)
           resolve(resp)
         })
         .catch(err => {
