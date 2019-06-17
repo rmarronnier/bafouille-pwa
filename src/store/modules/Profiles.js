@@ -25,7 +25,7 @@ const actions = {
       ApiService("getprofiles")
         .then(resp => resp.json())
         .then(newProfiles => {
-          commit('updateProfiles', newProfiles)
+          commit('updateProfiles', newProfiles.data)
           resolve(newProfiles)
         })
         .catch(err => {

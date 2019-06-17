@@ -40,7 +40,7 @@ export default {
         .then(resp => resp.json())
           .then(user => {
             commit('auth_success')
-            commit('updateUser', user)
+            commit('updateUser', user.data)
             commit('setNotification', 'Welcome back!')
             dispatch('getProfiles')
             //dispatch('updateAll')
@@ -63,7 +63,7 @@ export default {
           .then(resp => resp.json())
           .then(profiles => {
             commit('auth_success')
-            commit('updateProfiles', profiles)
+            commit('updateProfiles', profiles.data)
             resolve(profiles)
           })
           .catch(err => {
