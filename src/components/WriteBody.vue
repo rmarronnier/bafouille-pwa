@@ -5,15 +5,14 @@
           solo
           auto-grow
           autofocus
-          name="newbody"
-          label="Solo textarea"
+          name="body"
+          v-bind:label= "body"
+          v-bind:value= "body"
+          v-model="body"
         >
-        {{userbody}}
         </v-textarea>
   <v-btn flat type="submit">Save !</v-btn>
 </form>
-
-<v-btn flat to="/read">Don't want to write yet?</v-btn>
 </main>
 </template>
 
@@ -23,21 +22,21 @@ export default {
 
    data(){
       return {
-        newbody : ""
+        body : ''
       }
     },
-
+created(){
+    this.body = this.$store.getters.user_body
+},
     methods: {
       updatebody: function () {
-        let newbody = this.newbody 
-        this.$store.dispatch('changeBody', { newbody })
-       .then(() => this.$router.push('/read'))
-       .catch(err => console.log(err))
+          let data = {
+          body: this.body,
+        }
+        this.$store.dispatch('changeBody', data)
+        this.$router.push("/actions")
       }
-    },
-    computed : {
-       userbody : function(){ return this.$store.getters.user_body}
-     }
+    }
 }
 </script>
 

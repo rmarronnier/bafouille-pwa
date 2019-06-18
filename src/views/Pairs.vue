@@ -1,19 +1,14 @@
 <template>
-  <section class="pairs">
-      <div
-        v-for="pair in pairs"
-        v-bind:key="pair.id"
-      >
-        <article>{{ pair.body }}</article>
-      </div>
-  </section>
+    <Pairs/>
 </template>
 
 <script>
+import Pairs from '@/components/Pairs.vue'
+
 export default {
-    name : 'Pairs',
-     computed : {
-       pairs : function(){ return this.$store.getters.pairs}
-     }
+  name: 'pairs',
+  components: {
+    Pairs
+  }
 }
 </script>

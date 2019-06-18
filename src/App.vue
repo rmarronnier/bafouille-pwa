@@ -1,68 +1,67 @@
 <template>
   <div id="app">
-
-<v-app>
-  <v-toolbar app scroll-toolbar-off-screen=true>
-          <v-toolbar-items>
-            <v-btn flat to="/">Bafouille logo</v-btn>
-      <v-btn flat v-if="!isLoggedIn" to="/signup">Sign up</v-btn>
-      <v-btn flat v-if="!isLoggedIn" to="/signin">Sign in</v-btn>
-      <v-btn flat v-if="isLoggedIn" to="/read">Read</v-btn>
-      <v-btn flat v-if="isLoggedIn" to="/pairs">Pairs</v-btn>
-      <v-btn flat v-if="isLoggedIn" to="/messages">Messages</v-btn>
-      </v-toolbar-items>
+    <v-app :dark="darkMode">
+        <v-toolbar app scroll-toolbar-off-screen>
+<v-toolbar-items>
+<router-link to="/">
+  <img 
+              src="@/assets/bafouille.svg" 
+    alt="Bafouille logo"
+          width="150"
+          to="/"
+          />
+          </router-link>
+              </v-toolbar-items>
             <v-spacer></v-spacer>
-      <v-btn flat v-if="isLoggedIn"><a @click="logout">Logout</a></v-btn>
-  </v-toolbar>
-  <v-content>
-    <v-container fluid>
-      <router-view></router-view>
-    </v-container>
-  </v-content>
-  <v-footer app>
-       <v-spacer></v-spacer>
-    <v-btn flat to="/about"> About</v-btn></v-footer>
-</v-app>
-
-
+      <AccountMenu/>
+</v-toolbar>
+      <v-content>
+        <v-container fluid>
+          <Notifications/>
+          <transition name="fade">
+          <router-view/>
+          </transition>
+        </v-container>
+      </v-content>
+    </v-app>
   </div>
-
-
 </template>
 
 <script>
+import Notifications from "@/components/Notifications.vue"
+import AccountMenu from "@/components/AccountMenu.vue"
 
-  export default {
-    computed : {
-      isLoggedIn : function(){ return this.$store.getters.isLoggedIn}
+export default {
+  components: {
+    AccountMenu,
+    Notifications
+  },
+  data() {
+    return {
+      goDark: false
+    }
+  },
+  computed: {
+    isLoggedIn: function() {
+      return this.$store.getters.isLoggedIn;
     },
-    methods: {
-      logout: function () {
-        this.$store.dispatch('logout')
-        .then(() => {
-          this.$router.push('/signin')
-        })
-      }
-    },
+    darkMode: function() {
+      return this.$store.getters.darkMode;
+    }
   }
+}
 </script>
 
 <style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+.menu-top {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.v-btn flat-exact-active {
-      color: #42b983;
-    }
-  }
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>

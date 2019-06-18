@@ -1,32 +1,63 @@
 <template>
+
   <section class="read">
+            <v-tabs
+          v-model="model"
+          centered
+          slider-color="black"
+        >
+          <v-tab
+          >
+            Read Profiles
+          </v-tab>
+          <v-tab
+          >
+            Your matches
+          </v-tab>
+                    <v-tab
+          >
+            Edit your profile
+          </v-tab>
+        </v-tabs>
       <div
-        v-for="profile in profiles"
         v-bind:key="profile.id"
       >
       <v-card>
-                    <v-btn
-              color="pink"
-              dark
-              small
-              absolute
-              bottom
-              left
-              fab
-            >
-              <v-icon>add</v-icon>
-            </v-btn>
-         <v-card-text>{{ profile.body }}</v-card-text> </v-card>
+          <Reachout v-bind:profile="profile.id"/>
+          <Blockout v-bind:profile="profile.id"/>
+         <v-card-text class="profile">{{ profile.body }}</v-card-text> 
+         </v-card>
         
       </div>
   </section>
 </template>
 
 <script>
+import Reachout from '@/components/Reachout.vue';
+import Blockout from '@/components/Blockout.vue';
 export default {
     name : 'Read',
      computed : {
-       profiles : function(){ return this.$store.getters.profiles}
-     }
+       profile : function(){ return this.$store.getters.profiles[0]}
+     },
+  components: {
+    Reachout,
+    Blockout
+  }
 }
 </script>
+
+<style lang="scss">
+.v-card__text.profile{
+  padding: 6%;
+
+width: 100%;
+
+line-height: 3em;
+
+text-align: left;
+
+font-size: 22px;
+}
+</style>
+

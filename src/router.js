@@ -2,11 +2,12 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Read from './views/Read.vue'
-import Pairs from './views/Pairs.vue'
+import pairs from './views/Pairs.vue'
+import Actions from './views/Actions.vue'
 import Messages from './views/Messages.vue'
 import SignUpPage from './views/SignUpPage.vue'
 import SignInPage from './views/SignInPage.vue'
-import WriteBody from './components/WriteBody.vue'
+import Write from './views/Write.vue'
 
 Vue.use(Router)
 
@@ -46,7 +47,7 @@ export default new Router({
     {
       path: '/pairs',
       name: 'pairs',
-      component: Pairs,
+      component: pairs,
       meta: { 
         requiresAuth: true
       }
@@ -59,12 +60,17 @@ export default new Router({
     {
       path: '/write',
       name: 'write',
-      component: WriteBody
+      component: Write
     },
     {
       path: '/signin',
       name: 'signinpage',
       component: SignInPage
-    }
+    },
+    {
+      path: '/actions',
+      name: 'actions',
+      component: Actions
+    },
   ]
 })
