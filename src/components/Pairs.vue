@@ -69,7 +69,6 @@ export default {
           user_id: user_id
         }
         this.$store.dispatch('blockOut', JSON.stringify(data))
-       .catch(err => (err))
       }
     },
   components: {

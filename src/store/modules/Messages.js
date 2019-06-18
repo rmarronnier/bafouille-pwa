@@ -25,7 +25,7 @@ export default {
         ApiService("postmessage", message)
         .then(resp =>resp.json())
           .then(rawPairs => {
-            dispatch('cleanPairs', rawPairs)
+            dispatch('cleanPairs', rawPairs.data)
             commit('setNotification', 'Message sent !')
             resolve(rawPairs)
           })

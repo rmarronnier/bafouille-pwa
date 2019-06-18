@@ -38,15 +38,17 @@ const actions = {
   reachOut({ commit, dispatch }, profileID) {
     return new Promise((resolve, reject) => {
       ApiService("reachout", profileID)
-        .then(resp => {
+      .then(resp =>resp.json())
+        .then(response => {
           commit('removeProfile', profileID)
           commit('setNotification', 'You reached this person. Congrats !')
-          if (this.$store.getters.profiles_quantity == 0) {
-            dispatch('getProfiles')
-            dispatch('getPairs')
-          }
-          commit('setNotification', resp.flash.info)
-          resolve(resp)
+          // if (this.$store.getters.profiles_quantity == 0) {
+          //   dispatch('getProfiles')
+          //   resolve(resp)
+          // }
+          dispatch('cleanPairs', response.data)
+          commit('setNotification', response.flash.info)
+          resolve(response)
         })
         .catch(err => {
           commit('setNotification', 'Reaching out failed')
@@ -59,15 +61,17 @@ const actions = {
   blockOut({ commit, dispatch }, profileID) {
     return new Promise((resolve, reject) => {
       ApiService("blockout", profileID)
-        .then(resp => {
+      .then(resp =>resp.json())
+      .then(response => {
           commit('removeProfile', profileID)
           commit('setNotification', 'You blocked out one bugger, well done !')
-          if (this.$store.getters.profiles_quantity == 0) {
-            dispatch('getProfiles')
-            dispatch('getPairs')
-          }
-          commit('setNotification', resp.flash.info)
-          resolve(resp)
+          // if (this.$store.getters.profiles_quantity == 0) {
+          //   dispatch('getProfiles')
+          //   resolve(resp)
+          // }
+          dispatch('cleanPairs', response.data)
+          commit('setNotification', response.flash.info)
+          resolve(response)
         })
         .catch(err => {
           commit('setNotification', 'Blocking out failed')

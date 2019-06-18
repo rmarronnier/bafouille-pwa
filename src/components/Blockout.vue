@@ -35,8 +35,6 @@ props : {
           user_id: this.profile
         }
         this.$store.dispatch('blockOut', JSON.stringify(data))
-       //.then(() => this.$router.push('/read'))
-       .catch(err => (err))
       }
     }
 }
