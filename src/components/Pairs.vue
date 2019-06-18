@@ -32,6 +32,7 @@
             mdi-close
           </v-icon>
           </v-btn>
+          <!-- <MessagesDialog v-bind:pair="pair"/> -->
           <Messages v-bind:messages="pair.messages"></Messages>
         <WriteMessage v-bind:pair_id="pair.id"></WriteMessage>
 </v-dialog>
@@ -47,8 +48,10 @@
 </template>
 
 <script>
-import Messages from './Messages.vue';
-import WriteMessage from './WriteMessage.vue';
+import Messages from './Messages.vue'
+import WriteMessage from './WriteMessage.vue'
+// import MessagesDialog from './MessagesDialog.vue'
+
 
 export default {
   name: "Pairs",
@@ -73,7 +76,8 @@ export default {
     },
   components: {
     Messages,
-    WriteMessage
+    WriteMessage,
+    // MessagesDialog
   }
 }
 </script>
