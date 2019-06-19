@@ -6,8 +6,7 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import WriteBody from '@/components/WriteBody.vue'
+import WriteBody from '@/components/actions/user/WriteBody.vue'
 
 export default {
   name: 'Write',

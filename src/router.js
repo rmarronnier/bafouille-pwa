@@ -4,7 +4,6 @@ import Home from './views/Home.vue'
 import Read from './views/Read.vue'
 import pairs from './views/Pairs.vue'
 import Actions from './views/Actions.vue'
-import Messages from './views/Messages.vue'
 import SignUpPage from './views/SignUpPage.vue'
 import SignInPage from './views/SignInPage.vue'
 import Write from './views/Write.vue'
@@ -32,14 +31,6 @@ export default new Router({
       path: '/read',
       name: 'read',
       component: Read,
-      meta: { 
-        requiresAuth: true
-      }
-    },
-    {
-      path: '/messages',
-      name: 'messages',
-      component: Messages,
       meta: { 
         requiresAuth: true
       }

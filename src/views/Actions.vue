@@ -38,11 +38,11 @@
 </template>
 
 <script>
-import ReadProfiles from "@/components/ReadProfiles.vue"
-import Pairs from "@/components/Pairs.vue"
-import WriteBody from "@/components/WriteBody.vue"
-import NoMatch from "@/components/NoMatch.vue"
-import NoProfile from "@/components/NoProfile.vue"
+import ReadProfiles from "@/components/actions/profiles/ReadProfiles.vue"
+import Pairs from "@/components/actions/pairs/Pairs.vue"
+import WriteBody from "@/components/actions/user/WriteBody.vue"
+import NoMatch from "@/components/actions/pairs/NoMatch.vue"
+import NoProfile from "@/components/actions/profiles/NoProfile.vue"
 
 export default {
   name: "Actions",

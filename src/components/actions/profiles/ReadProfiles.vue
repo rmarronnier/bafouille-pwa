@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import Reachout from '@/components/Reachout.vue';
-import Blockout from '@/components/Blockout.vue';
+import Reachout from '@/components/actions/profiles/Reachout.vue';
+import Blockout from '@/components/actions/profiles/Blockout.vue';
 export default {
     name : 'ReadProfiles',
      computed : {
