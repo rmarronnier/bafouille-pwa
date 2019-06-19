@@ -43,15 +43,15 @@ export default {
             ApiService("changebody", JSON.stringify(newBody))
             .then(resp =>  resp.json())
               .then (userdb => {
-              commit('updateBody', userdb.body)
-              commit('setNotification', 'Profile updated !')
+              commit('updateBody', userdb.data.body)
+              dispatch('flashNotification', userdb.flash)
               //commit('updateBodyHTML', JSON.stringify(resp["bodyHTML"]))
               dispatch('getProfiles')
               dispatch('getPairs')
               resolve(userdb)
             })
             .catch(err => {
-              commit('setNotification', 'Updating your profile failed')
+              dispatch('flashNotification', err.json().flash)
               reject(err)
             })
           })

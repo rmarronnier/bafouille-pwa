@@ -23,6 +23,8 @@
 </template>
 
 <script>
+import Messages from './Messages.vue'
+import WriteMessage from './WriteMessage.vue'
 export default {
   name: 'MessagesDialog',
 props : {
@@ -33,17 +35,21 @@ props : {
         dialog : false
       }
     },
-
-    methods: {
   computed: {
     pairs: function() {
       return this.$store.getters.pairs
     }
-    }
+    },
+      components: {
+    Messages,
+    WriteMessage,
+  }
 }
-      }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
+<style lang="scss">
+  .correspondence{
+  background-color: white;
+  }
 </style>

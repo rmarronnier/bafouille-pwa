@@ -17,25 +17,7 @@
 
             <v-list-tile-action>
               
-
-<v-dialog content-class="correspondence" v-model="dialog" fullscreen transition="dialog-bottom-transition">
-<template v-slot:activator="{ on }">
-        <v-badge inline>
-          <template v-slot:badge>
-
-            <span>{{ pair.messages.length }}</span>
-          </template><v-icon v-on="on">mdi-chat</v-icon>
-        </v-badge>
-</template>
-<v-btn fixed fab @click="dialog = false">
-            <v-icon x-large color="black">
-            mdi-close
-          </v-icon>
-          </v-btn>
-          <!-- <MessagesDialog v-bind:pair="pair"/> -->
-          <Messages v-bind:messages="pair.messages"></Messages>
-        <WriteMessage v-bind:pair_id="pair.id"></WriteMessage>
-</v-dialog>
+          <MessagesDialog v-bind:pair="pair"/>
 
             </v-list-tile-action>
                         <v-list-tile-action>
@@ -48,10 +30,7 @@
 </template>
 
 <script>
-import Messages from './Messages.vue'
-import WriteMessage from './WriteMessage.vue'
-// import MessagesDialog from './MessagesDialog.vue'
-
+import MessagesDialog from './MessagesDialog.vue'
 
 export default {
   name: "Pairs",
@@ -62,7 +41,6 @@ export default {
   },
   data () {
       return {
-        dialog: false,
         notifications: false,
       }
     },
@@ -75,18 +53,11 @@ export default {
       }
     },
   components: {
-    Messages,
-    WriteMessage,
-    // MessagesDialog
+MessagesDialog
   }
 }
 </script>
 
 <style lang="scss">
-
-  .correspondence{
-  background-color: white;
-  }
-
 </style>
 
