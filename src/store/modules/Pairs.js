@@ -23,7 +23,7 @@ export default {
             resolve(rawPairs)
           })
           .catch(err => {
-            dispatch('flashNotification', err.json().flash)
+            //dispatch('flashNotification', err.json().flash)
             reject(err)
           })
       })

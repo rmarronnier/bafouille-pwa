@@ -26,11 +26,11 @@ export default {
         .then(resp =>resp.json())
           .then(rawPairs => {
             dispatch('cleanPairs', rawPairs.data)
-            dispatch('flashNotification', rawPairs.flash)
+            //dispatch('flashNotification', rawPairs.flash)
             resolve(rawPairs)
           })
           .catch(err => {
-            dispatch('flashNotification', err.json().flash)
+            //dispatch('flashNotification', err.json().flash)
             reject(err)
           })
       })

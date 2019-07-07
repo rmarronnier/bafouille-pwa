@@ -44,14 +44,14 @@ export default {
             .then(resp =>  resp.json())
               .then (userdb => {
               commit('updateBody', userdb.data.body)
-              dispatch('flashNotification', userdb.flash)
+             // dispatch('flashNotification', userdb.flash)
               //commit('updateBodyHTML', JSON.stringify(resp["bodyHTML"]))
               dispatch('getProfiles')
               dispatch('getPairs')
               resolve(userdb)
             })
             .catch(err => {
-              dispatch('flashNotification', err.json().flash)
+              //dispatch('flashNotification', err.json().flash)
               reject(err)
             })
           })

@@ -41,7 +41,7 @@ export default {
           .then(userdb => {
             commit('auth_success')
             commit('updateUser', userdb.data)
-            dispatch('flashNotification', userdb.flash)
+            //dispatch('flashNotification', userdb.flash)
             dispatch('getProfiles')
             //dispatch('updateAll')
             dispatch('getPairs')
@@ -50,7 +50,7 @@ export default {
           })
           .catch(err => {
             commit('auth_error')
-            dispatch('flashNotification', err.flash)
+            //dispatch('flashNotification', err.flash)
             reject(err)
           })
       })
@@ -64,12 +64,12 @@ export default {
           .then(userdb => {
             commit('auth_success')
             commit('updateUser', userdb.data)
-            dispatch('flashNotification', userdb.flash)
+            //dispatch('flashNotification', userdb.flash)
             resolve(userdb)
           })
           .catch(err => {
             commit('auth_error', err)
-            dispatch('flashNotification', err.json().flash)
+            //dispatch('flashNotification', err.json().flash)
             reject(err)
           })
       })
@@ -81,12 +81,12 @@ export default {
         ApiService("logout")
           .then(resp => {
             commit('logout_success')
-            dispatch('flashNotification', resp.json().flash)
+            //dispatch('flashNotification', resp.json().flash)
             resolve(resp)
           })
           .catch(err => {
             commit('logout_error', err)
-            dispatch('flashNotification', err.json().flash)
+            //dispatch('flashNotification', err.json().flash)
             reject(err)
           })
       })

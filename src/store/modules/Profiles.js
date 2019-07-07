@@ -29,7 +29,7 @@ const actions = {
           resolve(newProfiles)
         })
         .catch(err => {
-          dispatch('flashNotification', err.json().flash)
+         // dispatch('flashNotification', err.json().flash)
           reject(err)
         })
     })
@@ -46,11 +46,11 @@ const actions = {
           //   resolve(resp)
           // }
           dispatch('cleanPairs', response.data)
-          dispatch('flashNotification', response.flash)
+          //dispatch('flashNotification', response.flash)
           resolve(response)
         })
         .catch(err => {
-          dispatch('flashNotification', err.json().flash)
+          //dispatch('flashNotification', err.json().flash)
           reject(err)
         })
     })
@@ -68,11 +68,11 @@ const actions = {
           //   resolve(resp)
           // }
           dispatch('cleanPairs', response.data)
-          dispatch('flashNotification', response.flash)
+          //dispatch('flashNotification', response.flash)
           resolve(response)
         })
         .catch(err => {
-          dispatch('flashNotification', err.json().flash)
+          //dispatch('flashNotification', err.json().flash)
           reject(err)
         })
     })
