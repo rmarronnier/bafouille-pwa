@@ -1,6 +1,6 @@
 <template>
  <main class="container ui grid"><h1>Write whatever is on your mind</h1>
-<form @submit.prevent="updatebody">
+<form>
 <v-textarea
           solo
           auto-grow
@@ -11,7 +11,9 @@
           v-model="body"
         >
         </v-textarea>
-  <v-btn flat type="submit">Save !</v-btn>
+  <v-btn flat type="submit" v-on:click.passive="updatebody('getLetters')">Get relevant letters</v-btn>
+    <v-btn flat type="submit" @submit.prevent="updatebody('getLettersByReadability')">Get readable letters</v-btn>
+    <v-btn flat type="submit" v-on:click.passive="updatebody('getLettersBySentiment')">Get mood-based letters</v-btn>
 </form>
 </main>
 </template>
@@ -29,11 +31,11 @@ created(){
     this.body = this.$store.getters.user_body
 },
     methods: {
-      updatebody: function () {
+      updatebody: function (action) {
           let data = {
           body: this.body,
         }
-        this.$store.dispatch('getLetters', data)
+        this.$store.dispatch(action, data)
         this.$router.push("/play")
       }
     }

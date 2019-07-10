@@ -31,6 +31,34 @@ export default {
                   reject(err)
                 })
             })
+          },
+        getLettersByReadability({ commit }, body) {
+            return new Promise((resolve, reject) => {
+              ApiService("getlettersbyreadability", JSON.stringify(body))
+                .then(resp => resp.json())
+                .then(newLetters => {
+                  commit('updateGuestLetters', newLetters.data)
+                  resolve(newLetters)
+                })
+                .catch(err => {
+                 // dispatch('flashNotification', err.json().flash)
+                  reject(err)
+                })
+            })
+          },
+        getLettersBySentiment({ commit }, body) {
+            return new Promise((resolve, reject) => {
+              ApiService("getlettersbysentiment", JSON.stringify(body))
+                .then(resp => resp.json())
+                .then(newLetters => {
+                  commit('updateGuestLetters', newLetters.data)
+                  resolve(newLetters)
+                })
+                .catch(err => {
+                 // dispatch('flashNotification', err.json().flash)
+                  reject(err)
+                })
+            })
           }
         
      },

@@ -2,11 +2,11 @@
   <section class="actions">
     <v-tabs grow slider-color="black">
 
-<v-tab href="#tab-1">Your profile</v-tab>
+<v-tab href="#tab-1">Your text</v-tab>
 
       <v-tab href="#tab-2">
                   <v-badge inline>
-          Profiles
+          Letters
                   </v-badge>
           </v-tab>
 
