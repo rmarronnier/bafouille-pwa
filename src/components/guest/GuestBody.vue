@@ -11,9 +11,9 @@
           v-model="body"
         >
         </v-textarea>
-  <v-btn flat type="submit" v-on:click.passive="updatebody('getLetters')">Get relevant letters</v-btn>
-    <v-btn flat type="submit" @submit.prevent="updatebody('getLettersByReadability')">Get readable letters</v-btn>
-    <v-btn flat type="submit" v-on:click.passive="updatebody('getLettersBySentiment')">Get mood-based letters</v-btn>
+  <v-btn flat type="submit" v-on:click="updatebody('getLetters')">Get relevant letters</v-btn>
+    <v-btn flat type="submit" v-on:click="updatebody('getLettersByReadability')">Get readable letters</v-btn>
+    <v-btn flat type="submit" v-on:click="updatebody('getLettersBySentiment')">Get mood-based letters</v-btn>
 </form>
 </main>
 </template>
