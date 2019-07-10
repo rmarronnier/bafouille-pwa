@@ -54,17 +54,17 @@ var ressource, method
 
         case "getletters":
         ressource = "letters"
-        method = "GET"
+        method = "POST"
             break;
 
         case "getlettersbyreadability":
         ressource = "letters/readability"
-        method = "GET"
+        method = "POST"
             break;
 
         case "getlettersbysentiment":
         ressource = "letters/sentiment"
-        method = "GET"
+        method = "POST"
             break;
 
         default:

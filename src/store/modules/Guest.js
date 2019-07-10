@@ -20,7 +20,7 @@ export default {
      actions: {
         getLetters({ commit }, body) {
             return new Promise((resolve, reject) => {
-              ApiService("getletters", body)
+              ApiService("getletters", JSON.stringify(body))
                 .then(resp => resp.json())
                 .then(newLetters => {
                   commit('updateGuestLetters', newLetters.data)
@@ -32,12 +32,11 @@ export default {
                 })
             })
           }
-         
+        
      },
      getters: {
         guest_body: state => state.body,
         guest_letters: state => state.letters,
         guest_settings: state => state.settings
-         
      }
     }

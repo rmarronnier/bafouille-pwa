@@ -34,7 +34,7 @@ created(){
           body: this.body,
         }
         this.$store.dispatch('getLetters', data)
-        this.$router.push("/actions")
+        this.$router.push("/play")
       }
     }
 }
