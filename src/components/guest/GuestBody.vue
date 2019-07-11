@@ -28,7 +28,7 @@ export default {
       }
     },
 created(){
-    this.body = this.$store.getters.user_body
+    this.body = this.$store.getters.guest_body
 },
     methods: {
       updatebody: function (action) {

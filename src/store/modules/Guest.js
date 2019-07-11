@@ -11,11 +11,14 @@ export default {
             state.body = body
           },
           updateGuestSettings(state, settings){
-            state.body = settings
+            state.settings = settings
           },
           updateGuestLetters(state, letters){
               state.letters = letters
-          } 
+          },
+          nextLetter(state){
+            state.letters.splice(0, 1)
+          }
      },
      actions: {
         getLetters({ commit }, body) {

@@ -15,7 +15,7 @@
       </v-tab-item>
 
       <v-tab-item :value="'tab-2'">
-        <ReadLetters v-if="letters_quantity > 0"/>
+        <ReadLetters v-if="letters_quantity"/>
             <NoProfile v-else/>
       </v-tab-item>
 

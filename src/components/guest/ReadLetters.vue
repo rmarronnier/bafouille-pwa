@@ -1,23 +1,25 @@
 <template>
   <section class="read">
       <div
-        v-bind:key="letter.id"
+        v-bind:key="letter[0].id"
       >
       <v-card>
-         <v-card-text class="letter">{{ letter.body }}</v-card-text> 
+<NextLetterButton />
+         <v-card-text class="letter">{{ letter[0].body }}</v-card-text> 
          </v-card>
       </div>
   </section>
 </template>
 
 <script>
+import NextLetterButton from '@/components/guest/NextLetterButton.vue';
 export default {
     name : 'ReadLetters',
      computed : {
-       letter : function(){ return this.$store.getters.guest_letters[0]}
+       letter : function(){ return this.$store.getters.guest_letters}
      },
   components: {
-
+NextLetterButton
   }
 }
 </script>
