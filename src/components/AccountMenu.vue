@@ -5,19 +5,24 @@
         <v-btn v-on="on">Menu</v-btn>
       </template>
       <v-card>
-                <v-list>
-                    <v-list-tile >
+        <v-list>
+          <v-list-tile>
             <v-list-tile-content>
-          <v-btn flat v-if="!isLoggedIn" to="/signup">Sign up</v-btn>
-<v-btn flat v-if="isLoggedIn" to="/actions">Action !</v-btn>
-                      </v-list-tile-content>
+              <v-btn flat to="/play">Play !</v-btn>
+            </v-list-tile-content>
           </v-list-tile>
-                            <v-list-tile >
+          <v-list-tile>
             <v-list-tile-content>
-                    <v-btn flat v-if="!isLoggedIn" to="/signin">Sign in</v-btn>
-                              <v-btn v-if="isLoggedIn" flat>
-            <a @click="logout">Logout</a>
-          </v-btn>
+              <v-btn flat v-if="!isLoggedIn" to="/signup">Sign up</v-btn>
+              <v-btn flat v-if="isLoggedIn" to="/actions">Action !</v-btn>
+            </v-list-tile-content>
+          </v-list-tile>
+          <v-list-tile>
+            <v-list-tile-content>
+              <v-btn flat v-if="!isLoggedIn" to="/signin">Sign in</v-btn>
+              <v-btn v-if="isLoggedIn" flat>
+                <a @click="logout">Logout</a>
+              </v-btn>
             </v-list-tile-content>
           </v-list-tile>
         </v-list>
@@ -32,8 +37,7 @@
             <v-list-tile-title>Go dark !</v-list-tile-title>
           </v-list-tile>
 
-        </v-list> -->
-
+        </v-list>-->
       </v-card>
     </v-menu>
   </div>
@@ -42,15 +46,14 @@
 <script>
 export default {
   name: "AccountMenu",
-  components: {
-  },
+  components: {},
   data: () => ({
     menu: false,
     message: false
   }),
   computed: {
     isLoggedIn: function() {
-      return this.$store.getters.isLoggedIn
+      return this.$store.getters.isLoggedIn;
     },
     darkMode: function() {
       return this.$store.getters.darkMode;

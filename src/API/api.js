@@ -28,7 +28,7 @@ var ressource, method
             break;
 
         case "getprofiles":
-        ressource = "read"
+        ressource = "profiles"
         method = "GET"
             break;
 
@@ -49,6 +49,21 @@ var ressource, method
 
         case "postmessage":
         ressource = "pair"
+        method = "POST"
+            break;
+
+        case "getletters":
+        ressource = "letters"
+        method = "POST"
+            break;
+
+        case "getlettersbyreadability":
+        ressource = "letters/readability"
+        method = "POST"
+            break;
+
+        case "getlettersbysentiment":
+        ressource = "letters/sentiment"
         method = "POST"
             break;
 

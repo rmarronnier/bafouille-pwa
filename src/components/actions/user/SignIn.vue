@@ -10,7 +10,7 @@
           v-model="password"
           name="password"
           type="password"
-          hint="For example : 123456"
+          hint="If you forgot it, you're SOL. Sorry."
           required
           label="Password"
         ></v-text-field>

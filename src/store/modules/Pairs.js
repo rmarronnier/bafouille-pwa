@@ -14,7 +14,7 @@ export default {
     }
   },
   actions: {
-    getPairs({ commit, dispatch }) {
+    getPairs({ dispatch }) {
       return new Promise((resolve, reject) => {
         ApiService("getpairs")
         .then(resp =>resp.json())
@@ -23,7 +23,7 @@ export default {
             resolve(rawPairs)
           })
           .catch(err => {
-            commit('setNotification', 'Updatepairs failed for some reason')
+            //dispatch('flashNotification', err.json().flash)
             reject(err)
           })
       })

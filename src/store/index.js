@@ -8,6 +8,7 @@ import Pairs from './modules/Pairs'
 import Messages from './modules/Messages'
 import Notifications from './modules/Notifications'
 import Configuration from './modules/Configuration'
+import Guest from './modules/Guest'
 
 
 Vue.use(Vuex)
@@ -25,7 +26,8 @@ export default new Vuex.Store({
     pairs: Pairs,
     messages: Messages,
     notifications: Notifications,
-    configuration: Configuration
+    configuration: Configuration,
+    guest: Guest
   },
   state: { },
   mutations: { },

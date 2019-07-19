@@ -41,7 +41,7 @@ export default {
           .then(userdb => {
             commit('auth_success')
             commit('updateUser', userdb.data)
-            commit('setNotification', 'Welcome back!')
+            //dispatch('flashNotification', userdb.flash)
             dispatch('getProfiles')
             //dispatch('updateAll')
             dispatch('getPairs')
@@ -50,13 +50,13 @@ export default {
           })
           .catch(err => {
             commit('auth_error')
-            commit('setNotification', 'Email or password invalid :/')
+            //dispatch('flashNotification', err.flash)
             reject(err)
           })
       })
     },
 
-    register({ commit }, user) {
+    register({ dispatch, commit }, user) {
       return new Promise((resolve, reject) => {
         commit('auth_request')
         ApiService("register", JSON.stringify(user))
@@ -64,27 +64,29 @@ export default {
           .then(userdb => {
             commit('auth_success')
             commit('updateUser', userdb.data)
+            //dispatch('flashNotification', userdb.flash)
             resolve(userdb)
           })
           .catch(err => {
             commit('auth_error', err)
-            commit('setNotification', 'Something went wrong :/')
+            //dispatch('flashNotification', err.json().flash)
             reject(err)
           })
       })
     },
 
-    logout({ commit }) {
+    logout({ dispatch, commit }) {
       return new Promise((resolve, reject) => {
         commit('logout_request')
         ApiService("logout")
           .then(resp => {
             commit('logout_success')
-            commit('setNotification', 'See you soon!')
+            //dispatch('flashNotification', resp.json().flash)
             resolve(resp)
           })
           .catch(err => {
             commit('logout_error', err)
+            //dispatch('flashNotification', err.json().flash)
             reject(err)
           })
       })

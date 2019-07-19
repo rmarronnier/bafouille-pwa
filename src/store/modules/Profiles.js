@@ -20,7 +20,7 @@ const mutations = {
 
 const actions = {
 
-  getProfiles({ commit }) {
+  getProfiles({ commit, dispatch }) {
     return new Promise((resolve, reject) => {
       ApiService("getprofiles")
         .then(resp => resp.json())
@@ -29,7 +29,7 @@ const actions = {
           resolve(newProfiles)
         })
         .catch(err => {
-          commit('setNotification', 'Getting new profiles failed')
+         // dispatch('flashNotification', err.json().flash)
           reject(err)
         })
     })
@@ -41,17 +41,16 @@ const actions = {
       .then(resp =>resp.json())
         .then(response => {
           commit('removeProfile', profileID)
-          commit('setNotification', 'You reached this person. Congrats !')
           // if (this.$store.getters.profiles_quantity == 0) {
           //   dispatch('getProfiles')
           //   resolve(resp)
           // }
           dispatch('cleanPairs', response.data)
-          commit('setNotification', response.flash.info)
+          //dispatch('flashNotification', response.flash)
           resolve(response)
         })
         .catch(err => {
-          commit('setNotification', 'Reaching out failed')
+          //dispatch('flashNotification', err.json().flash)
           reject(err)
         })
     })
@@ -64,17 +63,16 @@ const actions = {
       .then(resp =>resp.json())
       .then(response => {
           commit('removeProfile', profileID)
-          commit('setNotification', 'You blocked out one bugger, well done !')
           // if (this.$store.getters.profiles_quantity == 0) {
           //   dispatch('getProfiles')
           //   resolve(resp)
           // }
           dispatch('cleanPairs', response.data)
-          commit('setNotification', response.flash.info)
+          //dispatch('flashNotification', response.flash)
           resolve(response)
         })
         .catch(err => {
-          commit('setNotification', 'Blocking out failed')
+          //dispatch('flashNotification', err.json().flash)
           reject(err)
         })
     })
