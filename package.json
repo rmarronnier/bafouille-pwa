@@ -22,10 +22,10 @@
   "devDependencies": {
     "@gfx/zopfli": "^1.0.14",
     "@mdi/font": "^3.7.95",
-    "@vue/cli-plugin-babel": "^3.9.2",
+    "@vue/cli-plugin-babel": "^5.0.8",
     "@vue/cli-plugin-eslint": "^3.9.2",
     "@vue/cli-plugin-pwa": "^3.9.0",
-    "@vue/cli-service": "^3.9.2",
+    "@vue/cli-service": "^5.0.8",
     "babel-eslint": "^10.0.2",
     "brotli-webpack-plugin": "^1.1.0",
     "compression-webpack-plugin": "^1.1.12",
